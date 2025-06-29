@@ -1,0 +1,754 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <title>Ecommerce Web Design</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.3.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+        
+    <style>
+
+        input{
+            outline: none;
+            color: #6c757d;
+        }
+        img{
+            cursor: pointer;
+        }
+
+        .cart-imgs{
+            border: 1px solid rgba(224, 224, 224, 1); background: rgba(247, 247, 247, 1); padding: 10px; border-radius: 6px;
+        }
+        .cart-txt1{
+            font-size: 17px; font-weight: 500; margin: 0; margin-left: 10px;
+        }
+        .cart-txt2{
+            font-size: 17px; font-weight: 400; margin: 0; margin: 5px 0 0 10px; color: rgba(139, 150, 165, 1);
+        }
+        .cart-txt3{
+            font-size: 14px; font-weight: 500; padding: 15px 5px;
+        }
+        .cart-btn{
+            border: 1px solid rgba(222, 226, 231, 1); box-shadow: 0px 1px 2px 0px rgba(56, 56, 56, 0.08); background: transparent; margin: 10px 0 0 10px; border-radius: 6px;
+        }
+        .cart-btn2{
+            background: linear-gradient(180deg, #127FFF 0%, #0067FF 100%);
+            padding: 10px 15px;
+            border-radius: 6px;
+            border: transparent;
+        }
+        .cart-btn2-txt{
+            font-size: 17px;
+            font-weight: 500;
+            color: white;
+            margin: 0;
+        }
+        .cart-btn3{
+            background: rgba(255, 255, 255, 1);
+            padding: 5px 15px;
+            border-radius: 6px;
+            border: 1px solid rgba(222, 226, 231, 1);
+        }
+        .cart-btn3-txt{
+            font-size: 17px;
+            font-weight: 500;
+            color: rgba(13, 110, 253, 1);
+            margin: 0;
+        }
+
+        .promo-banner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 40px;
+        background-color: #2a7fff;
+        color: white;
+        border-radius: 8px;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 100px;
+        }
+
+        .promo-banner::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40%;
+        height: 100%;
+        background-color: #0057d8;
+        clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+        z-index: 0;
+        }
+
+        .promo-text, .promo-button {
+        position: relative;
+        z-index: 1;
+        }
+
+        .promo-text h2 {
+        margin: 0;
+        font-size: 24px;
+        }
+
+        .promo-text p {
+        margin: 5px 0 0;
+        font-size: 16px;
+        opacity: 0.7;
+        color: rgba(255, 255, 255, 1);
+        }
+
+        .promo-button {
+        background-color: orange;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <!-- place navbar here -->
+        <nav style="padding: 15px;">
+            <div class="container p-0">
+                <div class="row align-items-center">
+                    <div class="col-md-2">
+                        <a class="navbar-brand" href="page1.html">
+                            <img src="assets/logo-colored.png" alt="Brand">
+                        </a>
+                    </div>
+
+                    <div class="col-md-6"></div>
+
+                    <div class="col-md-4" style="justify-content: end; display: flex;">
+                        <a href="#" style="padding: 10px;"><img src="assets/Profile.png" alt=""></a>
+                        <a href="#" style="padding: 10px;"><img src="assets/Message.png" alt=""></a>
+                        <a href="#" style="padding: 10px;"><img src="assets/Orders.png" alt=""></a>
+                        <a href="#" style="padding: 10px;"><img src="assets/Cart.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main style="background-color: #f7fafc;">
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <h3 style="font-size: 25px; font-weight: 600; margin: 0; padding: 25px 0;">My cart <span id="item-count">(3)</span></h3>
+                        </div>
+                    </div>
+                    <div class="col-md-12 p-0">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="col-md-12" id="product-list" style="border: 1px solid rgb(204, 200, 200); padding: 20px; border-radius: 10px; margin-bottom: 25px; background-color: white">
+
+                                    <!-- Toast -->
+                                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                                    <div id="liveToast2" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                                        <div class="toast-header">
+                                        <img src="..." class="rounded me-2" alt="...">
+                                        <strong class="me-auto">Bootstrap</strong>
+                                        <small>11 mins ago</small>
+                                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                        </div>
+                                        <div class="toast-body">
+                                        Item saved
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <!-- 1 -->
+                                    <div class="row item-count" style="border-bottom: 1px solid rgb(204, 200, 200); padding-bottom: 20px; margin-bottom: 20px;">
+                                        <div class="col-md-9">
+                                            <div style="float: left;">
+                                                <img src="assets/Bitmap3.png" class="cart-imgs" alt="">
+                                            </div>
+                                            <div style="float: left;">
+                                                <p class="cart-txt1">T-shirts with multiple colors, for men and lady</p>
+                                                <p class="cart-txt2">Size: medium, Color: blue,  Material: Plastic <br> Seller: Artel Market</p>
+                                                <button class="cart-btn" onclick="remove_item(this)">
+                                                    <span class="cart-txt3" style="color: rgba(250, 52, 52, 1);">Remove</span>
+                                                </button>
+                                                <button class="cart-btn liveToastBtn2" onclick="save_later('T-shirts with multiple colors, for men and lady', '$78.99', 'assets/Bitmap3.png')" style="margin-left: 5px;">
+                                                    <span class="cart-txt3" style="color: rgba(13, 110, 253, 1);">Save for later</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p class="justify-content-end d-flex" style="font-size: 17px; font-weight: 500; margin: 0; margin-top: 10px;">$78.99</p>
+                                            <div class="dropdown justify-content-end d-flex" style="margin-top: 10px;">
+                                                <button
+                                                    style="box-shadow: 0px 1px 2px 0px rgba(56, 56, 56, 0.08); border: 1px solid rgba(222, 226, 231, 1); background: transparent; border-radius: 6px;"
+                                                    class="btn dropdown-toggle"
+                                                    type="button"
+                                                    id="triggerId"
+                                                    data-bs-toggle="dropdown"
+                                                    aria-haspopup="true"
+                                                    aria-expanded="false"
+                                                >
+                                                    QTY: 9
+                                                </button>
+                                                <div class="dropdown-menu text-center" aria-labelledby="triggerId">
+                                                    <a class="dropdown-item" href="#">1</a>
+                                                    <a class="dropdown-item" href="#">2</a>
+                                                    <a class="dropdown-item" href="#">3</a>
+                                                    <a class="dropdown-item" href="#">4</a>
+                                                    <a class="dropdown-item" href="#">5</a>
+                                                    <a class="dropdown-item" href="#">6</a>
+                                                    <a class="dropdown-item" href="#">7</a>
+                                                    <a class="dropdown-item" href="#">8</a>
+                                                    <a class="dropdown-item" href="#">9</a>
+                                                    <a class="dropdown-item" href="#">10</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 2 -->
+                                    <div class="row item-count" style="border-bottom: 1px solid rgb(204, 200, 200); padding-bottom: 20px; margin-bottom: 20px;">
+                                        <div class="col-md-9">
+                                            <div style="float: left;">
+                                                <img src="assets/image_262-removebg-preview.png" class="cart-imgs" alt="">
+                                            </div>
+                                            <div style="float: left;">
+                                                <p class="cart-txt1">T-shirts with multiple colors, for men and lady</p>
+                                                <p class="cart-txt2">Size: medium, Color: blue,  Material: Plastic <br> Seller: Artel Market</p>
+                                                <button onclick="remove_item(this)" class="cart-btn">
+                                                    <span class="cart-txt3" style="color: rgba(250, 52, 52, 1);">Remove</span>
+                                                </button>
+                                                <button class="cart-btn liveToastBtn2" onclick="save_later('T-shirts with multiple colors, for men and lady', '$39.00', 'assets/image_262-removebg-preview.png')" style="margin-left: 5px;">
+                                                    <span class="cart-txt3" style="color: rgba(13, 110, 253, 1);">Save for later</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p class="justify-content-end d-flex" style="font-size: 17px; font-weight: 500; margin: 0; margin-top: 10px;">$39.00</p>
+                                            <div class="dropdown justify-content-end d-flex" style="margin-top: 10px;">
+                                                <button
+                                                    style="box-shadow: 0px 1px 2px 0px rgba(56, 56, 56, 0.08); border: 1px solid rgba(222, 226, 231, 1); background: transparent; border-radius: 6px;"
+                                                    class="btn dropdown-toggle"
+                                                    type="button"
+                                                    id="triggerId"
+                                                    data-bs-toggle="dropdown"
+                                                    aria-haspopup="true"
+                                                    aria-expanded="false"
+                                                >
+                                                    QTY: 3
+                                                </button>
+                                                <div class="dropdown-menu text-center" aria-labelledby="triggerId">
+                                                    <a class="dropdown-item" href="#">1</a>
+                                                    <a class="dropdown-item" href="#">2</a>
+                                                    <a class="dropdown-item" href="#">3</a>
+                                                    <a class="dropdown-item" href="#">4</a>
+                                                    <a class="dropdown-item" href="#">5</a>
+                                                    <a class="dropdown-item" href="#">6</a>
+                                                    <a class="dropdown-item" href="#">7</a>
+                                                    <a class="dropdown-item" href="#">8</a>
+                                                    <a class="dropdown-item" href="#">9</a>
+                                                    <a class="dropdown-item" href="#">10</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 3 -->
+                                    <div class="row item-count" style="border-bottom: 1px solid rgb(204, 200, 200); padding-bottom: 20px; margin-bottom: 20px;">
+                                        <div class="col-md-9">
+                                            <div style="float: left;">
+                                                <img src="assets/image 942s.png" class="cart-imgs" alt="">
+                                            </div>
+                                            <div style="float: left;">
+                                                <p class="cart-txt1">T-shirts with multiple colors, for men and lady</p>
+                                                <p class="cart-txt2">Size: medium, Color: blue,  Material: Plastic <br> Seller: Artel Market</p>
+                                                <button onclick="remove_item(this)" class="cart-btn">
+                                                    <span class="cart-txt3" style="color: rgba(250, 52, 52, 1);">Remove</span>
+                                                </button>
+                                                <button class="cart-btn liveToastBtn2" onclick="save_later('T-shirts with multiple colors, for men and lady', '$170.50', 'assets/image 942s.png')" style="margin-left: 5px;">
+                                                    <span class="cart-txt3" style="color: rgba(13, 110, 253, 1);">Save for later</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p class="justify-content-end d-flex" style="font-size: 17px; font-weight: 500; margin: 0; margin-top: 10px;">$170.50</p>
+                                            <div class="dropdown justify-content-end d-flex" style="margin-top: 10px;">
+                                                <button
+                                                    style="box-shadow: 0px 1px 2px 0px rgba(56, 56, 56, 0.08); border: 1px solid rgba(222, 226, 231, 1); background: transparent; border-radius: 6px;"
+                                                    class="btn dropdown-toggle"
+                                                    type="button"
+                                                    id="triggerId"
+                                                    data-bs-toggle="dropdown"
+                                                    aria-haspopup="true"
+                                                    aria-expanded="false"
+                                                >
+                                                    QTY: 1
+                                                </button>
+                                                <div class="dropdown-menu text-center" aria-labelledby="triggerId">
+                                                    <a class="dropdown-item" href="#">1</a>
+                                                    <a class="dropdown-item" href="#">2</a>
+                                                    <a class="dropdown-item" href="#">3</a>
+                                                    <a class="dropdown-item" href="#">4</a>
+                                                    <a class="dropdown-item" href="#">5</a>
+                                                    <a class="dropdown-item" href="#">6</a>
+                                                    <a class="dropdown-item" href="#">7</a>
+                                                    <a class="dropdown-item" href="#">8</a>
+                                                    <a class="dropdown-item" href="#">9</a>
+                                                    <a class="dropdown-item" href="#">10</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6" style="margin-top: 5px;">
+                                            <a class="cart-btn2" href="page2.html">
+                                                <span class="cart-btn2-txt">&LeftArrow; Back to shop</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-6" style="display: flex; justify-content: flex-end;">
+                                            <button class="cart-btn3" id="remove-all" onclick="remove_all()">
+                                                <span class="cart-btn3-txt">Remove all</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="col-md-12" style="border: 1px solid rgb(204, 200, 200); padding: 15px; border-radius: 10px; margin-bottom: 25px; background-color: white">
+                                    <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(80, 80, 80, 1);">Have a coupon?</p>
+                                    <div style="display: flex; overflow: hidden; border-radius: 6px; border: 1px solid rgba(222, 226, 231, 1); margin: 8px 0;">
+                                        <input id="inp" type="text" placeholder="Add a coupon" style="border: transparent; border-right: 1px solid rgba(222, 226, 231, 1); padding: 5px 10px;">
+                                        <span style="padding: 10px 15px; color: #007bff; cursor: pointer; font-weight: 500; font-size: 17px; white-space: nowrap;">Apply</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-12" style="border: 1px solid rgb(204, 200, 200); padding: 15px; border-radius: 10px; margin-bottom: 25px; background-color: white; box-shadow: 0px 4px 10px 0px rgba(56, 56, 56, 0.1);">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(80, 80, 80, 1);">Subtotal:</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(80, 80, 80, 1); text-align: right;">$1403.97</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p style="font-size: 17px; font-weight: 400; margin: 5px 0; color: rgba(80, 80, 80, 1);">Discount:</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p style="font-size: 17px; font-weight: 400; margin: 5px 0; color: rgba(250, 52, 52, 1); text-align: right;">- $60.00</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(80, 80, 80, 1);">Tax:</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(0, 181, 23, 1); text-align: right;">$14.00</p>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="padding: 20px 0;">
+                                        <div class="col-md-6" style="padding-right: 0;">
+                                            <div style="border-top: 1px solid rgb(204, 200, 200);">
+                                                <h6 style="font-size: 17px; font-weight: 600; padding-top: 20px; margin: 0;">Total:</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6" style="padding-left: 0;">
+                                            <div style="border-top: 1px solid rgb(204, 200, 200);">
+                                                <h4 style="font-size: 21px; font-weight: 600; padding-top: 20px; margin: 0; text-align: right;">$1357.97</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <button style="width: 100%; background: rgba(0, 181, 23, 1); border-radius: 8px; padding: 15px; border: transparent; color: white; font-size: 19px; font-weight: 500;">
+                                                Checkout
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12" style="padding: 15px 35px 5px 35px; text-align: center;">
+                                            <img src="assets/Logo.png" style="border: 1px solid rgba(238, 238, 238, 1); padding: 7px; margin-right: 4px; border-radius: 4px;" alt="">
+                                            <img src="assets/Logo3.png" style="border: 1px solid rgba(238, 238, 238, 1); padding: 7px; margin-right: 4px; border-radius: 4px;" alt="">
+                                            <img src="assets/Logo2.png" style="border: 1px solid rgba(238, 238, 238, 1); padding: 5px 12px; margin-right: 4px; border-radius: 4px;" alt="">
+                                            <img src="assets/Shape.png" style="border: 1px solid rgba(238, 238, 238, 1); padding: 7px; margin-right: 4px; border-radius: 4px;" alt="">
+                                            <img src="assets/image 21.png" style="border: 1px solid rgba(238, 238, 238, 1); padding: 7px; margin-right: 4px; border-radius: 4px;" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 p-0" style="margin-bottom: 25px;">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div style="border-radius: 50%; background: rgba(222, 226, 231, 1); float: left;">
+                                    <img src="assets/🔹Icon Color.png" style="padding: 15px 17px;" alt="">
+                                </div>
+                                <div style="float: left; margin-left: 10px;">
+                                    <p style="font-size: 17px; font-weight: 400; color: rgba(28, 28, 28, 1); margin: 0;">Secure payment</p>
+                                    <p style="font-size: 17px; font-weight: 400; color: rgba(169, 172, 176, 1); margin: 0; margin-top: -4px;">Have you ever finally just </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div style="border-radius: 50%; background: rgba(222, 226, 231, 1); float: left;">
+                                    <img src="assets/🔹Icon Color 2.png" style="padding: 15px; margin-top: 3px;" alt="">
+                                </div>
+                                <div style="float: left; margin-left: 10px;">
+                                    <p style="font-size: 17px; font-weight: 400; color: rgba(28, 28, 28, 1); margin: 0;">Customer support</p>
+                                    <p style="font-size: 17px; font-weight: 400; color: rgba(169, 172, 176, 1); margin: 0; margin-top: -4px;">Have you ever finally just </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div style="border-radius: 50%; background: rgba(222, 226, 231, 1); float: left;">
+                                    <img src="assets/🔹 Icon Color 3.png" style="padding: 17px 15px" alt="">
+                                </div>
+                                <div style="float: left; margin-left: 10px;">
+                                    <p style="font-size: 17px; font-weight: 400; color: rgba(28, 28, 28, 1); margin: 0;">Free delivery</p>
+                                    <p style="font-size: 17px; font-weight: 400; color: rgba(169, 172, 176, 1); margin: 0; margin-top: -4px;">Have you ever finally just </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12" style="border: 1px solid rgb(204, 200, 200); padding: 20px; border-radius: 10px; margin-bottom: 20px; background-color: white">
+                        <h4 style="font-size: 21px; font-weight: 600; margin: 0;">Saved for later</h4>
+                        <div class="col-md-12" style="margin-top: 15px;">
+                            <div class="row" id="product-list2">
+
+                                <!-- Toast -->
+                                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                                    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                                        <div class="toast-header">
+                                        <img src="..." class="rounded me-2" alt="...">
+                                        <strong class="me-auto">Bootstrap</strong>
+                                        <small>11 mins ago</small>
+                                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                        </div>
+                                        <div class="toast-body">
+                                        Item added succesfully
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 1 -->
+                                <div class="col-md-3 p-2">
+                                    <div class="col-md-12">
+                                        <div class="col-md-12" style="background: rgba(238, 238, 238, 1); border-radius: 6px; text-align: center;">
+                                            <img src="assets/image_32-removebg-preview.png" style="padding: 25px 0;" alt="">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <h4 style="font-size: 19px; font-weight: 600; margin: 10px 0;">$99.50</h4>
+                                            <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(96, 96, 96, 1); line-height: 24px;">GoPro HERO6 4K Action <br> Camera - Black</p>
+                                            <button class="cart-btn3 liveToastBtn" onclick="add_item('GoPro HERO6 4K Action <br> Camera - Black', '$99.50', 'assets/image_32-removebg-preview.png')" style="padding: 5px 10px; margin-top: 15px;">
+                                                <span class="cart-btn3-txt"><img src="assets/Vector12.png" style="margin-right: 10px; margin-top: -5px;" alt=""> Move to cart</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 2 -->
+                                <div class="col-md-3 p-2">
+                                    <div class="col-md-12">
+                                        <div class="col-md-12" style="background: rgba(238, 238, 238, 1); border-radius: 6px; text-align: center;">
+                                            <img src="assets/image_22-removebg-preview.png" style="padding: 25px 0;" alt="">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <h4 style="font-size: 19px; font-weight: 600; margin: 10px 0;">$99.50</h4>
+                                            <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(96, 96, 96, 1); line-height: 24px;">GoPro HERO6 4K Action <br> Camera - Black</p>
+                                            <button class="cart-btn3 liveToastBtn" onclick="add_item('GoPro HERO6 4K Action <br> Camera - Black', '$99.50', 'assets/image_22-removebg-preview.png')" style="padding: 5px 10px; margin-top: 15px;">
+                                                <span class="cart-btn3-txt"><img src="assets/Vector12.png" style="margin-right: 10px; margin-top: -5px;" alt=""> Move to cart</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 3 -->
+                                <div class="col-md-3 p-2">
+                                    <div class="col-md-12">
+                                        <div class="col-md-12" style="background: rgba(238, 238, 238, 1); border-radius: 6px; text-align: center;">
+                                            <img src="assets/image_35-removebg-preview2.png" style="padding: 26px 0;" alt="">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <h4 style="font-size: 19px; font-weight: 600; margin: 10px 0;">$99.50</h4>
+                                            <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(96, 96, 96, 1); line-height: 24px;">GoPro HERO6 4K Action <br> Camera - Black</p>
+                                            <button class="cart-btn3 liveToastBtn" onclick="add_item('GoPro HERO6 4K Action <br> Camera - Black', '$99.50', 'assets/image_35-removebg-preview2.png')" style="padding: 5px 10px; margin-top: 15px;">
+                                                <span class="cart-btn3-txt"><img src="assets/Vector12.png" style="margin-right: 10px; margin-top: -5px;" alt=""> Move to cart</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 4 -->
+                                <div class="col-md-3 p-2">
+                                    <div class="col-md-12">
+                                        <div class="col-md-12" style="background: rgba(238, 238, 238, 1); border-radius: 6px; text-align: center;">
+                                            <img src="assets/image_34-removebg-preview.png" style="padding: 43px 0;" alt="">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <h4 style="font-size: 19px; font-weight: 600; margin: 10px 0;">$99.50</h4>
+                                            <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(96, 96, 96, 1); line-height: 24px;">GoPro HERO6 4K Action <br> Camera - Black</p>
+                                            <button class="cart-btn3 liveToastBtn" onclick="add_item('GoPro HERO6 4K Action <br> Camera - Black', '$99.50', 'assets/image_34-removebg-preview.png')" style="padding: 5px 10px; margin-top: 15px;">
+                                                <span class="cart-btn3-txt"><img src="assets/Vector12.png" style="margin-right: 10px; margin-top: -5px;" alt=""> Move to cart</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="promo-banner">
+                        <div class="promo-text">
+                            <h2>Super discount on more than 100 USD</h2>
+                            <p>Have you ever finally just write dummy info</p>
+                        </div>
+                        <button class="promo-button">Shop now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <!-- place footer here -->
+        <div class="container p-5">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="assets/logo-colored.png" alt="">
+                    <p style="margin-top: 10px;">Best information about the company gies here but now lorem ipsum is</p>
+                    <img src="assets/facebook3.png" class="p" alt="">
+                    <img src="assets/twitter3.png" class="p" alt="">
+                    <img src="assets/linkedin3.png" class="p" alt="">
+                    <img src="assets/instagram3.png" class="p" alt="">
+                    <img src="assets/youtube3.png" class="p" alt="">
+                </div>
+                <div class="col-md-2" style="color: #999; line-height: 25px;">
+                    <h5 style="color: black;">About</h5>
+                    About us <br>
+                    Find store <br>
+                    Categories <br>
+                    Blogs <br>
+                </div>
+                <div class="col-md-2" style="color: #999; line-height: 25px;">
+                    <h5 style="color: black;">Partnership</h5>
+                    About us <br>
+                    Find store <br>
+                    Categories <br>
+                    Blogs <br>
+                </div>
+                <div class="col-md-2" style="color: #999; line-height: 25px;">
+                    <h5 style="color: black;">Information</h5>
+                    Help Center <br>
+                    Money Refund <br>
+                    SHipping <br>
+                    Contact us <br>
+                </div>
+                <div class="col-md-2" style="color: #999; line-height: 25px;">
+                    <h5 style="color: black;">For users</h5>
+                    Login <br>
+                    Register <br>
+                    Settings <br>
+                    My Orders <br>
+                </div>
+                <div class="col-md-1" style="color: #999; line-height: 25px;">
+                    <h5 style="color: black;">Get app</h5>
+                    <img src="assets/market-button-appstore.png" class="p" style="padding: 5px 0px;" alt="">
+                    <img src="assets/market-button-playstore.png" class="p" style="padding: 5px 0px;" alt="">
+                </div>
+            </div>
+        </div>
+        <div style="background-color: #eff2f4;">
+            <div class="container">
+                <div class="row p-4">
+                    <div class="col-md-6 align-self-center">
+                        <p style="margin: 0;">&copy; 2023 Ecommerce</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="dropdown" style="float: right;">
+                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <img src="assets/flag2.png" alt=""> English
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+        
+    <script>
+
+        const toastTriggers = document.querySelectorAll('.liveToastBtn');
+        const toastLiveExample = document.getElementById('liveToast');
+
+        if (toastTriggers.length > 0 && toastLiveExample) {
+        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+
+        toastTriggers.forEach(trigger => {
+            trigger.addEventListener('click', () => {
+            toastBootstrap.show();
+            });
+        });
+        }
+
+        const toastTriggers2 = document.querySelectorAll('.liveToastBtn2');
+        const toastLiveExample2 = document.getElementById('liveToast2');
+
+        if (toastTriggers.length > 0 && toastLiveExample2) {
+        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample2);
+
+        toastTriggers2.forEach(trigger => {
+            trigger.addEventListener('click', () => {
+            toastBootstrap.show();
+            });
+        });
+        }
+
+        function updateItemCount() {
+            const items = document.querySelectorAll('.item-count');
+            const count = document.getElementById('item-count');
+            count.textContent = `(${items.length})`;
+        }
+
+        function remove_item(button) {
+            const item = button.closest('.item-count');
+            if (item) item.remove();
+            updateItemCount();
+        }
+
+        function remove_all() {
+            const items = document.querySelectorAll('.item-count');
+            items.forEach(item => item.remove());
+            updateItemCount();
+        }
+
+        function add_item(name, price, imageSrc) {
+            const container = document.getElementById('product-list');
+
+            const productHTML = `
+                <!-- 1 -->
+                    <div class="row item-count" style="border-bottom: 1px solid rgb(204, 200, 200); padding-bottom: 20px; margin-bottom: 20px;">
+                        <div class="col-md-9">
+                            <div style="float: left;">
+                                <img src="${imageSrc}" style="width: 80px; height: 80px;" class="cart-imgs" alt="">
+                            </div>
+                            <div style="float: left;">
+                                <p class="cart-txt1">${name}</p>
+                                <p class="cart-txt2">Size: medium, Color: blue,  Material: Plastic <br> Seller: Artel Market</p>
+                                <button class="cart-btn" onclick="remove_item(this)">
+                                    <span class="cart-txt3" style="color: rgba(250, 52, 52, 1);">Remove</span>
+                                </button>
+                                <button class="cart-btn liveToastBtn2" onclick="save_later('${name}', '${price}', '${imageSrc}')" style="margin-left: 5px;">
+                                    <span class="cart-txt3" style="color: rgba(13, 110, 253, 1);">Save for later</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="justify-content-end d-flex" style="font-size: 17px; font-weight: 500; margin: 0; margin-top: 10px;">${price}</p>
+                            <div class="dropdown justify-content-end d-flex" style="margin-top: 10px;">
+                                <button
+                                    style="box-shadow: 0px 1px 2px 0px rgba(56, 56, 56, 0.08); border: 1px solid rgba(222, 226, 231, 1); background: transparent; border-radius: 6px;"
+                                    class="btn dropdown-toggle"
+                                    type="button"
+                                    id="triggerId"
+                                    data-bs-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                >
+                                    QTY: 9
+                                </button>
+                                <div class="dropdown-menu text-center" aria-labelledby="triggerId">
+                                    <a class="dropdown-item" href="#">1</a>
+                                    <a class="dropdown-item" href="#">2</a>
+                                    <a class="dropdown-item" href="#">3</a>
+                                    <a class="dropdown-item" href="#">4</a>
+                                    <a class="dropdown-item" href="#">5</a>
+                                    <a class="dropdown-item" href="#">6</a>
+                                    <a class="dropdown-item" href="#">7</a>
+                                    <a class="dropdown-item" href="#">8</a>
+                                    <a class="dropdown-item" href="#">9</a>
+                                    <a class="dropdown-item" href="#">10</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            `;
+
+            container.insertAdjacentHTML('afterbegin', productHTML);
+            updateItemCount();
+            }
+
+        function save_later(name, price, imageSrc) {
+            const container = document.getElementById('product-list2');
+
+            const productHTML = `
+                <!-- 1 -->
+                    <div class="col-md-3 p-2">
+                        <div class="col-md-12">
+                            <div class="col-md-12" style="background: rgba(238, 238, 238, 1); border-radius: 6px; text-align: center;">
+                                <img src="${imageSrc}" style="padding: 25px 0; width: 190px; height: 190px;" alt="">
+                            </div>
+                            <div class="col-md-12">
+                                <h4 style="font-size: 19px; font-weight: 600; margin: 10px 0;">${price}</h4>
+                                <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(96, 96, 96, 1); line-height: 24px;">${name}</p>
+                                <button class="cart-btn3 liveToastBtn" onclick="add_item('GoPro HERO6 4K Action <br> Camera - Black', '$99.50', 'assets/image_32-removebg-preview.png')" style="padding: 5px 10px; margin-top: 15px;">
+                                    <span class="cart-btn3-txt"><img src="assets/Vector12.png" style="margin-right: 10px; margin-top: -5px;" alt=""> Move to cart</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+            `;
+
+            container.insertAdjacentHTML('beforeend', productHTML);
+            updateItemCount();
+            }
+       
+    </script>
+
+</body>
+
+</html>
