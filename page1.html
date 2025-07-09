@@ -18,7 +18,6 @@
         html{
             scroll-behavior: smooth;
         }
-
         img{
             cursor: pointer;
         }
@@ -27,11 +26,49 @@
             border: 1px solid blue;
             box-shadow: none;
         }
-
         .p:hover {
             cursor: pointer;
         }
 
+        .search-nav{
+            width: 300px; border: 1px solid rgba(13, 110, 253, 1); border-top-right-radius: 0px; border-bottom-right-radius: 0px;
+        }
+        .search-nav:focus{
+            box-shadow: none;
+        }
+        .drp-dwn{
+            border: 1px solid rgba(13, 110, 253, 1); background: white; border-left: transparent; border-right: transparent; border-radius: 0;
+        }
+        .dd:focus{
+            border: transparent;
+        }
+        .btn-nav{
+            background: linear-gradient(180deg, #127FFF 0%, #0067FF 100%); color: white; border-top-left-radius: 0px; border-bottom-left-radius: 0px;
+        }
+        .btn-nav:hover{
+            color: white;
+        }
+
+        .sects{
+            border: 1px solid rgb(204, 200, 200); padding: 20px; border-radius: 10px; background-color: white;
+        }
+        .sects2{
+            border: 1px solid rgb(204, 200, 200); border-radius: 10px; background-color: white;
+        }
+        .sects3{
+            border-right: 1px solid rgb(204, 200, 200); padding: 20px;
+        }
+
+        .timer-box{
+            padding: 6px; margin-top: 20px; background-color: #666; border-radius: 5px; color: white; text-align: center;
+        }
+
+        .deal-txt{
+            text-align: center; margin: 0; color: red; background-color: rgb(255, 227, 227); border-radius: 50px; margin-top: 5px; font-weight: 500;
+        }
+        .d-txt{
+            margin: 0; margin-top: 20px; font-size: 17px; font-weight: 400;
+        }
         .txt {
             text-decoration: none;
             color: rgb(85, 85, 85);
@@ -39,12 +76,27 @@
             padding: 10px;
             font-size: 17px;
         }
-
         .txt2:hover {
             background-color: rgb(229, 241, 255);
             font-weight: 600;
             border-radius: 5px;
             padding: 3px 0px;
+        }
+
+        .snd-bg{
+            background: linear-gradient(94.99deg, #2C7CF1 7.19%, rgba(0, 209, 255, 0.5) 89.49%); padding: 30px; padding-bottom: 50px; color: white; border-radius: 5px;
+        }
+        .rec-box{
+            border: 1px solid rgb(204, 200, 200); border-radius: 5px; background-color: white; width: 18%; height: 320px; padding: 20px 15px; position: absolute;
+        }
+        .serv-btn{
+            position: absolute; top: 45%; transform: translateX(50%); right: 60px; background: rgba(209, 231, 255, 1); border: 2px solid white; border-radius: 50px; width: 60px; height: 60px;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .search-nav{
+                width: 100%;
+            }
         }
     </style>
 
@@ -53,136 +105,151 @@
 <body>
 
     <header>
-        <!-- place navbar here -->
-        <nav>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-2">
-                        <a class="navbar-brand"><img src="assets/logo-colored.png"
-                                alt="Brand">
-                        </a>
-                    </div>
-                    <div class="col-md-6">
-                        <form class="d-flex" role="search" style="border: solid blue; border-radius: 10px;">
-                            <input class="form-control me-2 h" type="search" placeholder="Search" aria-label="Search" />
-                            <div class="dropdown open">
-                                <button class="btn dropdown-toggle h" type="button" id="triggerId" data-bs-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                    All Categories
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="triggerId">
-                                    <button class="dropdown-item" href="#">Action</button>
-                                    <button class="dropdown-item disabled" href="#">
-                                        Disabled action
-                                    </button>
-                                </div>
+                    <a class="navbar-brand"><img src="assets/logo-colored.png" alt="Brand"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <form class="d-flex m-auto" role="search">
+                        <input class="form-control search-nav" type="search" placeholder="Search" aria-label="Search"/>
+                        <div class="btn-group drp-dwn">
+                            <button
+                                class="btn dropdown-toggle dd"
+                                type="button"
+                                id="triggerId"
+                                data-bs-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                All Categories
+                            </button>
+                            <div
+                                class="dropdown-menu dropdown-menu-start"
+                                aria-labelledby="triggerId"
+                            >
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item disabled" href="#">Disabled action</a>
+                                <h6 class="dropdown-header">Section header</h6>
+                                <a class="dropdown-item" href="#">Action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">After divider action</a>
                             </div>
-                            <button class="btn btn-primary"
-                                style="border-radius: 0%; background: linear-gradient(180deg, #127FFF 0%, #0067FF 100%);"
-                                type="submit">Search</button>
-                        </form>
-                    </div>
-                    <div class="col-md-4" style="justify-content: end; display: flex;">
-                        <a href="#" style="padding: 10px;"><img src="assets/Profile.png" alt=""></a>
-                        <a href="#" style="padding: 10px;"><img src="assets/Message.png" alt=""></a>
-                        <a href="#" style="padding: 10px;"><img src="assets/Orders.png" alt=""></a>
-                        <a href="page4.html" style="padding: 10px;"><img src="assets/Cart.png" alt=""></a>
-                    </div>
+                        </div>
+                        <button class="btn btn-nav" type="submit">Search</button>
+                    </form>
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">
+                                <img src="assets/Profile.png" alt="">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">
+                                <img src="assets/Message.png" alt="">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">
+                                <img src="assets/Orders.png" alt="">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="page4.html">
+                                <img src="assets/Cart.png" alt="">
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
 
-        <div class="container-fluid" style="border: 1px solid #999; align-content: center;">
+        <div class="container-fluid border p-2">
             <div class="container p-0">
                 <div class="row align-items-center">
-                    <div class="col-md-8" style="display: flex; justify-content: start; margin-top: 20px;">
-                        <div>
-                            <ul class="nav justify-content-center">
-                                <li class="nav-item">
-                                    <a class="nav-link active" style="color: black;" href="#" aria-current="page" type="button"
-                                        id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                            src="assets/Vector.png" alt=""> All
-                                        Categories</a>
-                                    <div class="btn-group">
-                                        <div class="dropdown-menu dropdown-menu-start" aria-labelledby="triggerId">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item disabled" href="#">Disabled action</a>
-                                            <h6 class="dropdown-header">Section header</h6>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">After divider action</a>
-                                        </div>
+                    <!-- Left Navigation -->
+                    <div class="col-lg-8 overflow-x-auto">
+                        <nav>
+                            <ul class="nav justify-content-center flex-nowrap">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-dark" href="#" id="dropdownCategories"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <img src="assets/Vector.png" alt=""> All Categories
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownCategories">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item disabled" href="#">Disabled action</a>
+                                        <h6 class="dropdown-header">Section header</h6>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">After divider action</a>
                                     </div>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" style="color: black;" href="#">Hot offers</a>
+                                    <a class="nav-link text-dark" href="#">Hot offers</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" style="color: black;" href="#">Gift boxes</a>
+                                    <a class="nav-link text-dark" href="#">Gift boxes</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" style="color: black;" href="#">Projects</a>
+                                    <a class="nav-link text-dark" href="#">Projects</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" style="color: black;" href="#">Menu item</a>
+                                    <a class="nav-link text-dark" href="#">Menu item</a>
                                 </li>
-                                <li class="nav-item">
-                                    <div class="btn-group">
-                                        <button class="btn dropdown-toggle" type="button" id="triggerId"
-                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Help
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-start" aria-labelledby="triggerId">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item disabled" href="#">Disabled action</a>
-                                            <h6 class="dropdown-header">Section header</h6>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">After divider action</a>
-                                        </div>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-dark" href="#" id="dropdownHelp"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Help
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownHelp">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item disabled" href="#">Disabled action</a>
+                                        <h6 class="dropdown-header">Section header</h6>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">After divider action</a>
                                     </div>
                                 </li>
                             </ul>
-                        </div>
+                        </nav>
                     </div>
-        
-                    <div class="col-md-4" style="display: flex; justify-content: end;">
-                        <div>
+
+                    <!-- Right Options -->
+                    <div class="col-lg-4">
+                        <nav>
                             <ul class="nav justify-content-center">
-                                <li class="nav-item">
-                                    <div class="btn-group">
-                                        <button class="btn dropdown-toggle" type="button" id="triggerId"
-                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            English, USD
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-start" aria-labelledby="triggerId">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item disabled" href="#">Disabled action</a>
-                                            <h6 class="dropdown-header">Section header</h6>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">After divider action</a>
-                                        </div>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-dark" href="#" id="dropdownLanguage"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        English, USD
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownLanguage">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item disabled" href="#">Disabled action</a>
+                                        <h6 class="dropdown-header">Section header</h6>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">After divider action</a>
                                     </div>
                                 </li>
-                                <li class="nav-item">
-                                    <div class="btn-group">
-                                        <button class="btn dropdown-toggle" type="button" id="triggerId"
-                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Ship to <img src="assets/flag1.png" alt="">
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-start" aria-labelledby="triggerId">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item disabled" href="#">Disabled action</a>
-                                            <h6 class="dropdown-header">Section header</h6>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">After divider action</a>
-                                        </div>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-dark" href="#" id="dropdownShipping"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Ship to <img src="assets/flag1.png" alt="">
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownShipping">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item disabled" href="#">Disabled action</a>
+                                        <h6 class="dropdown-header">Section header</h6>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">After divider action</a>
                                     </div>
                                 </li>
                             </ul>
-                        </div>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -192,10 +259,11 @@
 
     <main style="background-color: #f7fafc;">
 
+        <!-- Categories -->
         <section style="padding: 25px;">
-            <div class="container"
-                style="border: 1px solid rgb(204, 200, 200); padding: 20px; border-radius: 10px; background-color: white;">
+            <div class="container sects">
                 <div class="row">
+                    <!-- Category -->
                     <div class="col-md-3">
                         <div class="row">
                             <ul style="list-style: none;">
@@ -211,6 +279,7 @@
                             </ul>
                         </div>
                     </div>
+                    <!-- Learn more -->
                     <div class="col-md-7">
                         <div class="row" style="position: relative;">
                             <img src="assets/Banner-board-800x420 2.png" alt="">
@@ -223,6 +292,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Login -->
                     <div class="col-md-2">
                         <div class="row">
                             <div class="col-md-12"
@@ -278,39 +348,35 @@
             </div>
         </section>
 
+        <!-- Deals and offers -->
         <section>
-            <div class="container"
-                style="border: 1px solid rgb(204, 200, 200); border-radius: 10px; background-color: white;">
+            <div class="container sects2 overflow-x-auto">
                 <div class="row">
-                    <div class="col-md-3" style="border-right: 1px solid rgb(204, 200, 200); padding: 20px;">
+                    <div class="col-md-3 sects3" >
                         <p style="font-size: 20px; font-weight: 630; margin: 0;">Deals and offers</p>
                         <p style="font-size: 17px; color: rgb(164, 164, 164); margin: 0; line-height: 11px;">Hygiene
                             equipments</p>
                         <div class="row">
                             <div class="col-md-2 p-1">
-                                <div
-                                    style="padding: 6px; margin-top: 20px; background-color: #666; border-radius: 5px; color: white; text-align: center;">
+                                <div class="timer-box">
                                     <p style="margin: 0; font-weight: 500; font-size: 18px;" id="days">04</p>
                                     <p style="margin: 0; margin-top: -7px; font-weight: 300; font-size: 13px;">Days</p>
                                 </div>
                             </div>
                             <div class="col-md-2 p-1">
-                                <div
-                                    style="padding: 6px; margin-top: 20px; background-color: #666; border-radius: 5px; color: white; text-align: center;">
+                                <div class="timer-box">
                                     <p style="margin: 0; font-weight: 500; font-size: 18px;" id="hours">13</p>
                                     <p style="margin: 0; margin-top: -7px; font-weight: 300; font-size: 13px;">Hour</p>
                                 </div>
                             </div>
                             <div class="col-md-2 p-1">
-                                <div
-                                    style="padding: 6px; margin-top: 20px; background-color: #666; border-radius: 5px; color: white; text-align: center;">
+                                <div class="timer-box">
                                     <p style="margin: 0; font-weight: 500; font-size: 18px;" id="mins">34</p>
                                     <p style="margin: 0; margin-top: -7px; font-weight: 300; font-size: 13px;">Min</p>
                                 </div>
                             </div>
                             <div class="col-md-2 p-1">
-                                <div
-                                    style="padding: 6px; margin-top: 20px; background-color: #666; border-radius: 5px; color: white; text-align: center;">
+                                <div class="timer-box">
                                     <p style="margin: 0; font-weight: 500; font-size: 18px;" id="secs">56</p>
                                     <p style="margin: 0; margin-top: -7px; font-weight: 300; font-size: 13px;">Sec</p>
                                 </div>
@@ -319,48 +385,40 @@
                     </div>
                     <div class="col-md-9">
                         <div class="row">
-                            <div class="col-md-3" style="border-right: 1px solid rgb(204, 200, 200); padding: 20px;">
-                                <img src="assets/image 35.png" style="left: 50%; transform: translateX(50%);" alt="">
-                                <p
-                                    style="text-align: center; margin: 0; margin-top: 20px; font-size: 17px; font-weight: 400;">
+                            <div class="col-md-3 sects3" >
+                                <img src="assets/image 35.png" style="display: block; margin: auto; margin-top: 5px;" alt="">
+                                <p class="d-txt text-center">
                                     Smart watches</p>
                                 <div style="width: 30%; margin: 0 auto;">
-                                    <p
-                                        style="text-align: center; margin: 0; color: red; background-color: rgb(255, 227, 227); border-radius: 50px; margin-top: 5px; font-weight: 500;">
+                                    <p class="deal-txt">
                                         -25%</p>
                                 </div>
                             </div>
-                            <div class="col-md-3" style="border-right: 1px solid rgb(204, 200, 200); padding: 20px;">
+                            <div class="col-md-3 sects3">
                                 <img src="assets/image 28.png"
-                                    style="left: 50%; transform: translateX(30%); margin-top: 5px;" alt="">
-                                <p
-                                    style="text-align: center; margin: 0; margin-top: 50px; font-size: 17px; font-weight: 400;">
+                                    style="display: block; margin: auto; margin-top: 8px;" alt="">
+                                <p class="d-txt text-center mt-5">
                                     GoPro cameras</p>
                                 <div style="width: 30%; margin: 0 auto;">
-                                    <p
-                                        style="text-align: center; margin: 0; color: red; background-color: rgb(255, 227, 227); border-radius: 50px; margin-top: 5px; font-weight: 500;">
+                                    <p class="deal-txt">
                                         -40%</p>
                                 </div>
                             </div>
-                            <div class="col-md-3" style="border-right: 1px solid rgb(204, 200, 200); padding: 20px;">
-                                <img src="assets/image 29.png" style="left: 50%; transform: translateX(40%);" alt="">
-                                <p
-                                    style="text-align: center; margin: 0; margin-top: 20px; font-size: 17px; font-weight: 400;">
+                            <div class="col-md-3 sects3">
+                                <img src="assets/image 29.png" style="display: block; margin: auto;" alt="">
+                                <p class="d-txt text-center">
                                     Headphones</p>
                                 <div style="width: 30%; margin: 0 auto;">
-                                    <p
-                                        style="text-align: center; margin: 0; color: red; background-color: rgb(255, 227, 227); border-radius: 50px; margin-top: 5px; font-weight: 500;">
+                                    <p class="deal-txt">
                                         -25%</p>
                                 </div>
                             </div>
                             <div class="col-md-3" style="padding: 20px;">
-                                <img src="assets/image 23.png" style="left: 50%; transform: translateX(30%);" alt="">
-                                <p
-                                    style="text-align: center; margin: 0; margin-top: 20px; font-size: 17px; font-weight: 400;">
+                                <img src="assets/image 23.png" style="display: block; margin: auto;" alt="">
+                                <p class="d-txt text-center mt-4">
                                     Mobile phones</p>
                                 <div style="width: 30%; margin: 0 auto;">
-                                    <p
-                                        style="text-align: center; margin: 0; color: red; background-color: rgb(255, 227, 227); border-radius: 50px; margin-top: 5px; font-weight: 500;">
+                                    <p class="deal-txt">
                                         -15%</p>
                                 </div>
                             </div>
@@ -370,9 +428,9 @@
             </div>
         </section>
 
+        <!-- Home and outdoor -->
         <section style="padding: 25px;">
-            <div class="container"
-                style="border: 1px solid rgb(204, 200, 200); border-radius: 10px; background-color: white;">
+            <div class="container sects2">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="row" style="position: relative;">
@@ -388,101 +446,109 @@
                     </div>
                     <div class="col-md-9">
                         <div class="row">
+                            <!-- 1 -->
                             <div class="col-md-3 p-0" style="position: relative;">
                                 <div
                                     style="height: 151px; border: 1px solid rgb(204, 200, 200); border-top: 0; border-left: 0;">
-                                    <p
-                                        style="font-size: 17px; font-weight: 400; position: absolute; top: 20px; left: 15px;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 0px; left: 15px;">
                                         Soft chairs</p>
-                                    <p
-                                        style="font-size: 14px; font-weight: 400; position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
                                         From <br> USD 19</p>
                                     <img src="assets/1.png" style="position: absolute; bottom: 10px; right: 10px;"
                                         alt="">
                                 </div>
                             </div>
+                            <!-- 2 -->
                             <div class="col-md-3 p-0" style="position: relative;">
                                 <div
                                     style="height: 151px; border: 1px solid rgb(204, 200, 200); border-top: 0; border-left: 0;">
-                                    <p
-                                        style="font-size: 17px; font-weight: 400; position: absolute; top: 20px; left: 15px;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 0px; left: 15px;">
                                         Sofa and chair</p>
-                                    <p
-                                        style="font-size: 14px; font-weight: 400; position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
                                         From <br> USD 19</p>
                                     <img src="assets/image 94.png"
                                         style="position: absolute; bottom: 10px; right: 10px;" alt="">
                                 </div>
                             </div>
+                            <!-- 3 -->
                             <div class="col-md-3 p-0" style="position: relative;">
                                 <div
                                     style="height: 151px; border: 1px solid rgb(204, 200, 200); border-top: 0; border-left: 0;">
-                                    <p
-                                        style="font-size: 17px; font-weight: 400; position: absolute; top: 20px; left: 15px;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 0px; left: 15px;">
                                         Kitchen dishes</p>
-                                    <p
-                                        style="font-size: 14px; font-weight: 400; position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
                                         From <br> USD 19</p>
                                     <img src="assets/image 93.png" style="position: absolute; bottom: 7px; right: 10px;"
                                         alt="">
                                 </div>
                             </div>
+                            <!-- 4 -->
                             <div class="col-md-3 p-0" style="position: relative;">
                                 <div
                                     style="height: 151px; border: 1px solid rgb(204, 200, 200); border-top: 0; border-left: 0; border-right: 0;">
-                                    <p
-                                        style="font-size: 17px; font-weight: 400; position: absolute; top: 20px; left: 15px;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 10px; left: 15px;">
                                         Smart Watches</p>
-                                    <p
-                                        style="font-size: 14px; font-weight: 400; position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
                                         From <br> USD 19</p>
                                     <img src="assets/image 90.png"
                                         style="position: absolute; bottom: 10px; right: 10px;" alt="">
                                 </div>
                             </div>
+                            <!-- 5 -->
                             <div class="col-md-3 p-0" style="position: relative;">
                                 <div style="height: 151px; border-right: 1px solid rgb(204, 200, 200);">
-                                    <p
-                                        style="font-size: 17px; font-weight: 400; position: absolute; top: 20px; left: 15px;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 10px; left: 15px;">
                                         Kitchen mixer</p>
-                                    <p
-                                        style="font-size: 14px; font-weight: 400; position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
                                         From <br> USD 100</p>
                                     <img src="assets/image 88.png"
                                         style="position: absolute; bottom: 10px; right: 10px;" alt="">
                                 </div>
                             </div>
+                            <!-- 6 -->
                             <div class="col-md-3 p-0" style="position: relative;">
                                 <div style="height: 151px; border-right: 1px solid rgb(204, 200, 200);">
-                                    <p
-                                        style="font-size: 17px; font-weight: 400; position: absolute; top: 20px; left: 15px;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 10px; left: 15px;">
                                         Blenders</p>
-                                    <p
-                                        style="font-size: 14px; font-weight: 400; position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
                                         From <br> USD 39</p>
                                     <img src="assets/image 87.png"
                                         style="position: absolute; bottom: 10px; right: 10px;" alt="">
                                 </div>
                             </div>
+                            <!-- 7 -->
                             <div class="col-md-3 p-0" style="position: relative;">
                                 <div style="height: 151px; border-right: 1px solid rgb(204, 200, 200);">
-                                    <p
-                                        style="font-size: 17px; font-weight: 400; position: absolute; top: 20px; left: 15px;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 0px; left: 15px;">
                                         Home appliance</p>
-                                    <p
-                                        style="font-size: 14px; font-weight: 400; position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
                                         From <br> USD 19</p>
                                     <img src="assets/rasm.png" style="position: absolute; bottom: 10px; right: 10px;"
                                         alt="">
                                 </div>
                             </div>
+                            <!-- 8 -->
                             <div class="col-md-3 p-0" style="position: relative;">
                                 <div style="height: 151px;">
-                                    <p
-                                        style="font-size: 17px; font-weight: 400; position: absolute; top: 20px; left: 15px;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 0px; left: 15px;">
                                         Coffee maker</p>
-                                    <p
-                                        style="font-size: 14px; font-weight: 400; position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
                                         From <br> USD 10</p>
                                     <img src="assets/image 89.png"
                                         style="position: absolute; bottom: 10px; right: 10px;" alt="">
@@ -494,9 +560,9 @@
             </div>
         </section>
 
+        <!-- Electronics and gadgets -->
         <section>
-            <div class="container"
-                style="border: 1px solid rgb(204, 200, 200); border-radius: 10px; background-color: white;">
+            <div class="container sects2">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="row" style="position: relative;">
@@ -512,101 +578,109 @@
                     </div>
                     <div class="col-md-9">
                         <div class="row">
+                            <!-- 1 -->
                             <div class="col-md-3 p-0" style="position: relative;">
                                 <div
                                     style="height: 151px; border: 1px solid rgb(204, 200, 200); border-top: 0; border-left: 0;">
-                                    <p
-                                        style="font-size: 17px; font-weight: 400; position: absolute; top: 20px; left: 15px;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 0px; left: 15px;">
                                         Smart watches</p>
-                                    <p
-                                        style="font-size: 14px; font-weight: 400; position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
                                         From <br> USD 19</p>
                                     <img src="assets/8.png" style="position: absolute; bottom: 10px; right: 10px;"
                                         alt="">
                                 </div>
                             </div>
+                            <!-- 2 -->
                             <div class="col-md-3 p-0" style="position: relative;">
                                 <div
                                     style="height: 151px; border: 1px solid rgb(204, 200, 200); border-top: 0; border-left: 0;">
-                                    <p
-                                        style="font-size: 17px; font-weight: 400; position: absolute; top: 20px; left: 15px;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 0px; left: 15px;">
                                         Cameras</p>
-                                    <p
-                                        style="font-size: 14px; font-weight: 400; position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
                                         From <br> USD 89</p>
                                     <img src="assets/6.png" style="position: absolute; bottom: 10px; right: 10px;"
                                         alt="">
                                 </div>
                             </div>
+                            <!-- 3 -->
                             <div class="col-md-3 p-0" style="position: relative;">
                                 <div
                                     style="height: 151px; border: 1px solid rgb(204, 200, 200); border-top: 0; border-left: 0;">
-                                    <p
-                                        style="font-size: 17px; font-weight: 400; position: absolute; top: 20px; left: 15px;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 0px; left: 15px;">
                                         Headphones</p>
-                                    <p
-                                        style="font-size: 14px; font-weight: 400; position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
                                         From <br> USD 10</p>
                                     <img src="assets/image 86.png" style="position: absolute; bottom: 7px; right: 10px;"
                                         alt="">
                                 </div>
                             </div>
+                            <!-- 4 -->
                             <div class="col-md-3 p-0" style="position: relative;">
                                 <div
                                     style="height: 151px; border: 1px solid rgb(204, 200, 200); border-top: 0; border-left: 0; border-right: 0;">
-                                    <p
-                                        style="font-size: 17px; font-weight: 400; position: absolute; top: 20px; left: 15px;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 0px; left: 15px;">
                                         Smart Watches</p>
-                                    <p
-                                        style="font-size: 14px; font-weight: 400; position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
                                         From <br> USD 90</p>
                                     <img src="assets/image 85.png"
                                         style="position: absolute; bottom: 10px; right: 10px;" alt="">
                                 </div>
                             </div>
+                            <!-- 5 -->
                             <div class="col-md-3 p-0" style="position: relative;">
                                 <div style="height: 151px; border-right: 1px solid rgb(204, 200, 200);">
-                                    <p
-                                        style="font-size: 17px; font-weight: 400; position: absolute; top: 20px; left: 15px;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 0px; left: 15px;">
                                         Gaming set</p>
-                                    <p
-                                        style="font-size: 14px; font-weight: 400; position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
                                         From <br> USD 35</p>
                                     <img src="assets/5.png" style="position: absolute; bottom: 10px; right: 10px;"
                                         alt="">
                                 </div>
                             </div>
+                            <!-- 6 -->
                             <div class="col-md-3 p-0" style="position: relative;">
                                 <div style="height: 151px; border-right: 1px solid rgb(204, 200, 200);">
-                                    <p
-                                        style="font-size: 17px; font-weight: 400; position: absolute; top: 20px; left: 15px;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 0px; left: 15px;">
                                         Laptop & PC</p>
-                                    <p
-                                        style="font-size: 14px; font-weight: 400; position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
                                         From <br> USD 340</p>
                                     <img src="assets/7.png" style="position: absolute; bottom: 10px; right: 10px;"
                                         alt="">
                                 </div>
                             </div>
+                            <!-- 7 -->
                             <div class="col-md-3 p-0" style="position: relative;">
                                 <div style="height: 151px; border-right: 1px solid rgb(204, 200, 200);">
-                                    <p
-                                        style="font-size: 17px; font-weight: 400; position: absolute; top: 20px; left: 15px;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 0px; left: 15px;">
                                         Smartphones</p>
-                                    <p
-                                        style="font-size: 14px; font-weight: 400; position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
                                         From <br> USD 19</p>
                                     <img src="assets/image 32.png"
                                         style="position: absolute; bottom: 10px; right: 10px;" alt="">
                                 </div>
                             </div>
+                            <!-- 8 -->
                             <div class="col-md-3 p-0" style="position: relative;">
                                 <div style="height: 151px;">
-                                    <p
-                                        style="font-size: 17px; font-weight: 400; position: absolute; top: 20px; left: 15px;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 0px; left: 15px;">
                                         Electric kattle</p>
-                                    <p
-                                        style="font-size: 14px; font-weight: 400; position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
+                                    <p class="d-txt"
+                                        style="position: absolute; top: 50px; left: 15px; line-height: 16px; margin: 0; color: #8B96A5;">
                                         From <br> USD 240</p>
                                     <img src="assets/image 33.png"
                                         style="position: absolute; bottom: 10px; right: 10px;" alt="">
@@ -618,10 +692,11 @@
             </div>
         </section>
 
+        <!-- Send requests and quotes -->
         <section style="padding: 25px;">
             <div class="container" style="background-image: url(assets/image102.png);">
-                <div class="row"
-                    style="background: linear-gradient(94.99deg, #2C7CF1 7.19%, rgba(0, 209, 255, 0.5) 89.49%); padding: 30px; padding-bottom: 50px; color: white; border-radius: 5px;">
+                <div class="row snd-bg">
+                    <!-- Send request -->
                     <div class="col-md-4">
                         <h2 style="font-size: 32px; font-weight: 630;">An easy way to send requests to all suppliers
                         </h2>
@@ -629,8 +704,9 @@
                             eiusmod tempor incididunt.</p>
                     </div>
                     <div class="col-md-3"></div>
-                    <div class="col-md-5 p-4"
-                        style="background-color: white; color: black; border-radius: 10px; font-size: 20px;">
+                    <!-- Send quote -->
+                    <div class="col-md-5 p-4 bg-light text-black"
+                        style="border-radius: 10px; font-size: 20px;">
                         <div class="row">
                             <form action="">
                                 <h4>Send quote to suppliers</h4>
@@ -669,66 +745,67 @@
             </div>
         </section>
 
+        <!-- Recommended items -->
         <section>
             <div class="container" style="height: 730px; position: relative;">
                 <div class="row">
                     <h3 style="font-size: 26px; font-weight: 640;">Recommended items</h3>
                     <!-- 1 -->
-                    <div style="border: 1px solid rgb(204, 200, 200); border-radius: 5px; background-color: white; width: 18%; height: 320px; padding: 20px 15px; position: absolute; top: 60px; left: 0px;">
+                    <div class="rec-box" style="top: 60px; left: 0px;">
                         <img src="assets/Bitmap2.png" style="display: block; margin: auto;" alt="">
                         <p style="margin-top: 40px; line-height: 0px; font-size: 17px; font-weight: 500;">$10.30</p>
                         <p style="font-size: 17px; font-weight: 300; color: rgb(88, 95, 105); margin: 0;">T-shirts with multiple <br> colors, for men</p>
                     </div>
                     <!-- 2 -->
-                    <div style="border: 1px solid rgb(204, 200, 200); border-radius: 5px; background-color: white; width: 18%; height: 320px; padding: 20px 15px; position: absolute; top: 60px; left: 270px;">
+                    <div class="rec-box" style="top: 60px; left: 270px;">
                         <img src="assets/2 1.png" style="display: block; margin: auto;" alt="">
                         <p style="margin-top: 40px; line-height: 0px; font-size: 17px; font-weight: 500;">$10.30</p>
                         <p style="font-size: 17px; font-weight: 300; color: rgb(88, 95, 105); margin: 0;">Brown winter coat <br> medium size</p>
                     </div>
                     <!-- 3 -->
-                    <div style="border: 1px solid rgb(204, 200, 200); border-radius: 5px; background-color: white; width: 18%; height: 320px; padding: 20px 15px; position: absolute; top: 60px; left: 540px;">
+                    <div class="rec-box" style="top: 60px; left: 540px;">
                         <img src="assets/image 30.png" style="display: block; margin: auto;" alt="">
                         <p style="margin-top: 40px; line-height: 0px; font-size: 17px; font-weight: 500;">$12.50</p>
                         <p style="font-size: 17px; font-weight: 300; color: rgb(88, 95, 105); margin: 0;">Jeans bag for travel <br> for men</p>
                     </div>
                     <!-- 4 -->
-                    <div style="border: 1px solid rgb(204, 200, 200); border-radius: 5px; background-color: white; width: 18%; height: 320px; padding: 20px 15px; position: absolute; top: 60px; left: 810px;">
+                    <div class="rec-box" style="top: 60px; left: 810px;">
                         <img src="assets/image 24.png" style="display: block; margin: auto;" alt="">
                         <p style="margin-top: 40px; line-height: 0px; font-size: 17px; font-weight: 500;">$34.00</p>
                         <p style="font-size: 17px; font-weight: 300; color: rgb(88, 95, 105); margin: 0;">Blue wallet for men <br> leather material</p>
                     </div>
                     <!-- 5 -->
-                    <div style="border: 1px solid rgb(204, 200, 200); border-radius: 5px; background-color: white; width: 18%; height: 320px; padding: 20px 15px; position: absolute; top: 60px; left: 1080px;">
+                    <div class="rec-box" style="top: 60px; left: 1080px;">
                         <img src="assets/image 26.png" style="display: block; margin: auto;" alt="">
                         <p style="margin-top: 40px; line-height: 0px; font-size: 17px; font-weight: 500;">$99.00</p>
                         <p style="font-size: 17px; font-weight: 300; color: rgb(88, 95, 105); margin: 0;">Leather wallet</p>
                     </div>
                     <!-- 1 -->
-                    <div style="border: 1px solid rgb(204, 200, 200); border-radius: 5px; background-color: white; width: 18%; height: 320px; padding: 20px 15px; position: absolute; top: 400px; left: 0px;">
+                    <div class="rec-box" style="top: 400px; left: 0px;">
                         <img src="assets/Bitmap.png" style="display: block; margin: auto; margin-top: 10px;" alt="">
                         <p style="margin-top: 50px; line-height: 0px; font-size: 17px; font-weight: 500;">$9.99</p>
                         <p style="font-size: 17px; font-weight: 300; color: rgb(88, 95, 105); margin: 0;">Jeans shorts for men <br> blue color</p>
                     </div>
                     <!-- 2 -->
-                    <div style="border: 1px solid rgb(204, 200, 200); border-radius: 5px; background-color: white; width: 18%; height: 320px; padding: 20px 15px; position: absolute; top: 400px; left: 270px;">
+                    <div class="rec-box" style="top: 400px; left: 270px;">
                         <img src="assets/image 862.png" style="display: block; margin: auto;" alt="">
                         <p style="margin-top: 20px; line-height: 0px; font-size: 17px; font-weight: 500;">$8.99</p>
                         <p style="font-size: 17px; font-weight: 300; color: rgb(88, 95, 105); margin: 0;">Headset for gaming <br> with mic</p>
                     </div>
                     <!-- 3 -->
-                    <div style="border: 1px solid rgb(204, 200, 200); border-radius: 5px; background-color: white; width: 18%; height: 320px; padding: 20px 15px; position: absolute; top: 400px; left: 540px;">
+                    <div class="rec-box" style="top: 400px; left: 540px;">
                         <img src="assets/image 35.png" style="display: block; margin: auto; margin-top: 30px;" alt="">
                         <p style="margin-top: 60px; line-height: 0px; font-size: 17px; font-weight: 500;">$10.30</p>
                         <p style="font-size: 17px; font-weight: 300; color: rgb(88, 95, 105); margin: 0;">Smartwatch <br> silver color modern</p>
                     </div>
                     <!-- 4 -->
-                    <div style="border: 1px solid rgb(204, 200, 200); border-radius: 5px; background-color: white; width: 18%; height: 320px; padding: 20px 15px; position: absolute; top: 400px; left: 810px;">
+                    <div class="rec-box" style="top: 400px; left: 810px;">
                         <img src="assets/image 902.png" style="display: block; margin: auto;" alt="">
                         <p style="margin-top: 30px; line-height: 0px; font-size: 17px; font-weight: 500;">$10.30</p>
                         <p style="font-size: 17px; font-weight: 300; color: rgb(88, 95, 105); margin: 0;">Leather wallet</p>
                     </div>
                     <!-- 5 -->
-                    <div style="border: 1px solid rgb(204, 200, 200); border-radius: 5px; background-color: white; width: 18%; height: 320px; padding: 20px 15px; position: absolute; top: 400px; left: 1080px;">
+                    <div class="rec-box" style="top: 400px; left: 1080px;">
                         <img src="assets/image 852.png" style="display: block; margin: auto;" alt="">
                         <p style="margin-top: 30px; line-height: 0px; font-size: 17px; font-weight: 500;">$80.95</p>
                         <p style="font-size: 17px; font-weight: 300; color: rgb(88, 95, 105); margin: 0;">Jeans bag for travel <br> for men</p>
@@ -737,6 +814,7 @@
             </div>
         </section>
 
+        <!-- Extra services -->
         <section style="padding: 20px;">
             <div class="container">
                 <div class="row">
@@ -749,7 +827,7 @@
                         <div style="border: 1px solid rgb(224, 218, 218); border-radius: 0 0 5px 5px; background-color: white;">
                             <p style="font-size: 17px; font-weight: 500; line-height: 23px; padding: 20px; margin: 0;">Source from <br> industry Hubs</p>
                         </div>
-                        <button style="position: absolute; top: 45%; transform: translateX(50%); right: 60px; background: rgba(209, 231, 255, 1); border: 2px solid white; border-radius: 50px; width: 60px; height: 60px;">
+                        <button class="serv-btn">
                             <img src="assets/Vector1.png" style="display: block; margin: auto;" alt="">
                         </button>
                     </div>
@@ -761,7 +839,7 @@
                         <div style="border: 1px solid rgb(224, 218, 218); border-radius: 0 0 5px 5px; background-color: white;">
                             <p style="font-size: 17px; font-weight: 500; line-height: 23px; padding: 20px; margin: 0;">Customize your <br> products</p>
                         </div>
-                        <button style="position: absolute; top: 45%; transform: translateX(50%); right: 60px; background: rgba(209, 231, 255, 1); border: 2px solid white; border-radius: 50px; width: 60px; height: 60px;">
+                        <button class="serv-btn">
                             <img src="assets/Vector2.png" style="display: block; margin: auto;" alt="">
                         </button>
                     </div>
@@ -773,7 +851,7 @@
                         <div style="border: 1px solid rgb(224, 218, 218); border-radius: 0 0 5px 5px; background-color: white;">
                             <p style="font-size: 17px; font-weight: 500; line-height: 23px; padding: 20px; margin: 0;">Fast, reliable shipping <br> by ocean or air</p>
                         </div>
-                        <button style="position: absolute; top: 45%; transform: translateX(50%); right: 60px; background: rgba(209, 231, 255, 1); border: 2px solid white; border-radius: 50px; width: 60px; height: 60px;">
+                        <button class="serv-btn">
                             <img src="assets/Vector3.png" style="display: block; margin: auto;" alt="">
                         </button>
                     </div>
@@ -785,7 +863,7 @@
                         <div style="border: 1px solid rgb(224, 218, 218); border-radius: 0 0 5px 5px; background-color: white;">
                             <p style="font-size: 17px; font-weight: 500; line-height: 23px; padding: 20px; margin: 0;">Product monitoring <br> and inspection</p>
                         </div>
-                        <button style="position: absolute; top: 45%; transform: translateX(50%); right: 60px; background: rgba(209, 231, 255, 1); border: 2px solid white; border-radius: 50px; width: 60px; height: 60px;">
+                        <button class="serv-btn">
                             <img src="assets/Vector4.png" style="display: block; margin: auto;" alt="">
                         </button>
                     </div>
@@ -793,6 +871,7 @@
             </div>
         </section>
 
+        <!-- Suppliers -->
         <section>
             <div class="container" style="padding: 15px 0 45px 0;">
                 <div class="row">

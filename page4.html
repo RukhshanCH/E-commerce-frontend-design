@@ -23,8 +23,30 @@
             cursor: pointer;
         }
 
+        .search-nav{
+            width: 300px; border: 1px solid rgba(13, 110, 253, 1); border-top-right-radius: 0px; border-bottom-right-radius: 0px;
+        }
+        .search-nav:focus{
+            box-shadow: none;
+        }
+        .drp-dwn{
+            border: 1px solid rgba(13, 110, 253, 1); background: white; border-left: transparent; border-right: transparent; border-radius: 0;
+        }
+        .dd:focus{
+            border: transparent;
+        }
+        .btn-nav{
+            background: linear-gradient(180deg, #127FFF 0%, #0067FF 100%); color: white; border-top-left-radius: 0px; border-bottom-left-radius: 0px;
+        }
+        .btn-nav:hover{
+            color: white;
+        }
+
         .cart-imgs{
             border: 1px solid rgba(224, 224, 224, 1); background: rgba(247, 247, 247, 1); padding: 10px; border-radius: 6px;
+        }
+        .cart-items{
+            border-bottom: 1px solid rgb(204, 200, 200); padding-bottom: 20px; margin-bottom: 20px;
         }
         .cart-txt1{
             font-size: 17px; font-weight: 500; margin: 0; margin-left: 10px;
@@ -61,6 +83,9 @@
             font-weight: 500;
             color: rgba(13, 110, 253, 1);
             margin: 0;
+        }
+        .sects{
+            border: 1px solid rgb(204, 200, 200); padding: 20px; border-radius: 10px; margin-bottom: 25px; background-color: white
         }
 
         .promo-banner {
@@ -114,6 +139,24 @@
         font-size: 16px;
         cursor: pointer;
         }
+
+        .save-img{
+            padding: 25px 0;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .search-nav{
+                width: 100%;
+            }
+        }
+        @media screen and (max-width: 992px) {
+            .save-img{
+            max-height: 180px;
+            object-fit: contain;
+            display: block;
+            margin: auto;
+            }
+        }
     </style>
 
 </head>
@@ -121,31 +164,160 @@
 <body>
 
     <header>
-        <!-- place navbar here -->
-        <nav style="padding: 15px;">
-            <div class="container p-0">
-                <div class="row align-items-center">
-                    <div class="col-md-2">
-                        <a class="navbar-brand" href="page1.html">
-                            <img src="assets/logo-colored.png" alt="Brand">
-                        </a>
-                    </div>
-
-                    <div class="col-md-6"></div>
-
-                    <div class="col-md-4" style="justify-content: end; display: flex;">
-                        <a href="#" style="padding: 10px;"><img src="assets/Profile.png" alt=""></a>
-                        <a href="#" style="padding: 10px;"><img src="assets/Message.png" alt=""></a>
-                        <a href="#" style="padding: 10px;"><img src="assets/Orders.png" alt=""></a>
-                        <a href="#" style="padding: 10px;"><img src="assets/Cart.png" alt=""></a>
-                    </div>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container">
+                    <a class="navbar-brand" href="page1.html"><img src="assets/logo-colored.png" alt="Brand"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <form class="d-flex m-auto" role="search">
+                        <input class="form-control search-nav" type="search" placeholder="Search" aria-label="Search"/>
+                        <div class="btn-group drp-dwn">
+                            <button
+                                class="btn dropdown-toggle dd"
+                                type="button"
+                                id="triggerId"
+                                data-bs-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                All Categories
+                            </button>
+                            <div
+                                class="dropdown-menu dropdown-menu-start"
+                                aria-labelledby="triggerId"
+                            >
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item disabled" href="#">Disabled action</a>
+                                <h6 class="dropdown-header">Section header</h6>
+                                <a class="dropdown-item" href="#">Action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">After divider action</a>
+                            </div>
+                        </div>
+                        <button class="btn btn-nav" type="submit">Search</button>
+                    </form>
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">
+                                <img src="assets/Profile.png" alt="">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">
+                                <img src="assets/Message.png" alt="">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">
+                                <img src="assets/Orders.png" alt="">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="page4.html">
+                                <img src="assets/Cart.png" alt="">
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
+
+        <div class="container-fluid border p-2">
+            <div class="container p-0">
+                <div class="row align-items-center">
+                    <!-- Left Navigation -->
+                    <div class="col-lg-8 overflow-x-auto">
+                        <nav>
+                            <ul class="nav justify-content-center flex-nowrap">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-dark" href="#" id="dropdownCategories"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <img src="assets/Vector.png" alt=""> All Categories
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownCategories">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item disabled" href="#">Disabled action</a>
+                                        <h6 class="dropdown-header">Section header</h6>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">After divider action</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">Hot offers</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">Gift boxes</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">Projects</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="#">Menu item</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-dark" href="#" id="dropdownHelp"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Help
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownHelp">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item disabled" href="#">Disabled action</a>
+                                        <h6 class="dropdown-header">Section header</h6>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">After divider action</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <!-- Right Options -->
+                    <div class="col-lg-4">
+                        <nav>
+                            <ul class="nav justify-content-center">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-dark" href="#" id="dropdownLanguage"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        English, USD
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownLanguage">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item disabled" href="#">Disabled action</a>
+                                        <h6 class="dropdown-header">Section header</h6>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">After divider action</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-dark" href="#" id="dropdownShipping"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Ship to <img src="assets/flag1.png" alt="">
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownShipping">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item disabled" href="#">Disabled action</a>
+                                        <h6 class="dropdown-header">Section header</h6>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">After divider action</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
     <main style="background-color: #f7fafc;">
 
+        <!-- My cart section -->
         <section>
             <div class="container">
                 <div class="row">
@@ -156,14 +328,15 @@
                     </div>
                     <div class="col-md-12 p-0">
                         <div class="row">
+                            <!-- Items in the cart -->
                             <div class="col-md-9">
-                                <div class="col-md-12" id="product-list" style="border: 1px solid rgb(204, 200, 200); padding: 20px; border-radius: 10px; margin-bottom: 25px; background-color: white">
+                                <div class="col-md-12 sects" id="product-list">
 
                                     <!-- Toast -->
                                 <div class="toast-container position-fixed bottom-0 end-0 p-3">
                                     <div id="liveToast2" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                                         <div class="toast-header">
-                                        <img src="..." class="rounded me-2" alt="...">
+                                        <img class="rounded me-2" alt="...">
                                         <strong class="me-auto">Bootstrap</strong>
                                         <small>11 mins ago</small>
                                         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -175,7 +348,7 @@
                                 </div>
 
                                     <!-- 1 -->
-                                    <div class="row item-count" style="border-bottom: 1px solid rgb(204, 200, 200); padding-bottom: 20px; margin-bottom: 20px;">
+                                    <div class="row item-count cart-items">
                                         <div class="col-md-9">
                                             <div style="float: left;">
                                                 <img src="assets/Bitmap3.png" class="cart-imgs" alt="">
@@ -221,7 +394,7 @@
                                         </div>
                                     </div>
                                     <!-- 2 -->
-                                    <div class="row item-count" style="border-bottom: 1px solid rgb(204, 200, 200); padding-bottom: 20px; margin-bottom: 20px;">
+                                    <div class="row item-count cart-items">
                                         <div class="col-md-9">
                                             <div style="float: left;">
                                                 <img src="assets/image_262-removebg-preview.png" class="cart-imgs" alt="">
@@ -267,7 +440,7 @@
                                         </div>
                                     </div>
                                     <!-- 3 -->
-                                    <div class="row item-count" style="border-bottom: 1px solid rgb(204, 200, 200); padding-bottom: 20px; margin-bottom: 20px;">
+                                    <div class="row item-count cart-items">
                                         <div class="col-md-9">
                                             <div style="float: left;">
                                                 <img src="assets/image 942s.png" class="cart-imgs" alt="">
@@ -326,6 +499,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- Checkout -->
                             <div class="col-md-3">
                                 <div class="col-md-12" style="border: 1px solid rgb(204, 200, 200); padding: 15px; border-radius: 10px; margin-bottom: 25px; background-color: white">
                                     <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(80, 80, 80, 1);">Have a coupon?</p>
@@ -433,10 +607,11 @@
             </div>
         </section>
 
+        <!-- Save for later section -->
         <section>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12" style="border: 1px solid rgb(204, 200, 200); padding: 20px; border-radius: 10px; margin-bottom: 20px; background-color: white">
+                    <div class="col-md-12 sects">
                         <h4 style="font-size: 21px; font-weight: 600; margin: 0;">Saved for later</h4>
                         <div class="col-md-12" style="margin-top: 15px;">
                             <div class="row" id="product-list2">
@@ -445,7 +620,7 @@
                                 <div class="toast-container position-fixed bottom-0 end-0 p-3">
                                     <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                                         <div class="toast-header">
-                                        <img src="..." class="rounded me-2" alt="...">
+                                        <img class="rounded me-2" alt="...">
                                         <strong class="me-auto">Bootstrap</strong>
                                         <small>11 mins ago</small>
                                         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -460,7 +635,7 @@
                                 <div class="col-md-3 p-2">
                                     <div class="col-md-12">
                                         <div class="col-md-12" style="background: rgba(238, 238, 238, 1); border-radius: 6px; text-align: center;">
-                                            <img src="assets/image_32-removebg-preview.png" style="padding: 25px 0;" alt="">
+                                            <img src="assets/image_32-removebg-preview.png" class="save-img" alt="">
                                         </div>
                                         <div class="col-md-12">
                                             <h4 style="font-size: 19px; font-weight: 600; margin: 10px 0;">$99.50</h4>
@@ -475,7 +650,7 @@
                                 <div class="col-md-3 p-2">
                                     <div class="col-md-12">
                                         <div class="col-md-12" style="background: rgba(238, 238, 238, 1); border-radius: 6px; text-align: center;">
-                                            <img src="assets/image_22-removebg-preview.png" style="padding: 25px 0;" alt="">
+                                            <img src="assets/image_22-removebg-preview.png" class="save-img" alt="">
                                         </div>
                                         <div class="col-md-12">
                                             <h4 style="font-size: 19px; font-weight: 600; margin: 10px 0;">$99.50</h4>
@@ -490,7 +665,7 @@
                                 <div class="col-md-3 p-2">
                                     <div class="col-md-12">
                                         <div class="col-md-12" style="background: rgba(238, 238, 238, 1); border-radius: 6px; text-align: center;">
-                                            <img src="assets/image_35-removebg-preview2.png" style="padding: 26px 0;" alt="">
+                                            <img src="assets/image_35-removebg-preview2.png" class="save-img" alt="">
                                         </div>
                                         <div class="col-md-12">
                                             <h4 style="font-size: 19px; font-weight: 600; margin: 10px 0;">$99.50</h4>
@@ -505,7 +680,7 @@
                                 <div class="col-md-3 p-2">
                                     <div class="col-md-12">
                                         <div class="col-md-12" style="background: rgba(238, 238, 238, 1); border-radius: 6px; text-align: center;">
-                                            <img src="assets/image_34-removebg-preview.png" style="padding: 43px 0;" alt="">
+                                            <img src="assets/image_34-removebg-preview.png" class="save-img" style="padding: 43px 0;" alt="">
                                         </div>
                                         <div class="col-md-12">
                                             <h4 style="font-size: 19px; font-weight: 600; margin: 10px 0;">$99.50</h4>
@@ -522,7 +697,7 @@
                 </div>
             </div>
         </section>
-        
+        <!-- Promo Banner -->
         <section>
             <div class="container">
                 <div class="row">
@@ -730,7 +905,7 @@
                     <div class="col-md-3 p-2">
                         <div class="col-md-12">
                             <div class="col-md-12" style="background: rgba(238, 238, 238, 1); border-radius: 6px; text-align: center;">
-                                <img src="${imageSrc}" style="padding: 25px 0; width: 190px; height: 190px;" alt="">
+                                <img src="${imageSrc}" class="save-img" alt="">
                             </div>
                             <div class="col-md-12">
                                 <h4 style="font-size: 19px; font-weight: 600; margin: 10px 0;">${price}</h4>

@@ -18,14 +18,56 @@
             border: 1px solid blue;
             box-shadow: none;
         }
-
         .p:hover {
             cursor: pointer;
         }
-
         .q:hover {
             cursor: pointer;
             background-color: rgba(222, 226, 231, 1);
+        }
+
+        .search-nav{
+            width: 300px; border: 1px solid rgba(13, 110, 253, 1); border-top-right-radius: 0px; border-bottom-right-radius: 0px;
+        }
+        .search-nav:focus{
+            box-shadow: none;
+        }
+        .drp-dwn{
+            border: 1px solid rgba(13, 110, 253, 1); background: white; border-left: transparent; border-right: transparent; border-radius: 0;
+        }
+        .dd:focus{
+            border: transparent;
+        }
+        .btn-nav{
+            background: linear-gradient(180deg, #127FFF 0%, #0067FF 100%); color: white; border-top-left-radius: 0px; border-bottom-left-radius: 0px;
+        }
+        .btn-nav:hover{
+            color: white;
+        }
+
+        .sects{
+            border: 1px solid rgb(204, 200, 200); padding: 15px 30px; border-radius: 10px; margin-bottom: 20px; background-color: white;
+        }
+        .sects2{
+            border: 1px solid rgb(204, 200, 200); padding: 15px; border-radius: 10px; margin-bottom: 20px; background-color: white;
+        }
+        .det-txt1{
+            padding-left: 20px; padding-right: 0;
+        }
+        .det-txt2{
+            padding-left: 0;
+        }
+        .det-txt3{
+            padding: 5px; font-size: 17px; font-weight: 400; margin: 0; color: rgba(80, 80, 80, 1);
+        }
+        .may-like{
+            border: 1px solid rgba(224, 224, 224, 1); border-radius: 10px; padding: 10px; margin-top: 12px;
+        }
+        .d-txt{
+            font-size: 17px; font-weight: 400; margin: 0;
+        }
+        .rel-bg{
+            background: rgba(238, 238, 238, 1); border-radius: 5px; margin: 10px 0 0 5px;
         }
 
         .t{
@@ -152,6 +194,12 @@
         img{
             cursor: pointer;
         }
+        
+        @media screen and (max-width: 768px) {
+            .search-nav{
+                width: 100%;
+            }
+        }
 
     </style>
 
@@ -160,136 +208,151 @@
 <body>
 
     <header>
-        <!-- place navbar here -->
-        <nav>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-2">
-                        <a class="navbar-brand" href="page1.html">
-                            <img src="assets/logo-colored.png" alt="Brand">
-                        </a>
-                    </div>
-                    <div class="col-md-6">
-                        <form class="d-flex" role="search" style="border: solid blue; border-radius: 10px;">
-                            <input class="form-control me-2 h" type="search" placeholder="Search" aria-label="Search" />
-                            <div class="dropdown open">
-                                <button class="btn dropdown-toggle h" type="button" id="triggerId" data-bs-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                    All Categories
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="triggerId">
-                                    <button class="dropdown-item" href="#">Action</button>
-                                    <button class="dropdown-item disabled" href="#">
-                                        Disabled action
-                                    </button>
-                                </div>
+                    <a class="navbar-brand" href="page1.html"><img src="assets/logo-colored.png" alt="Brand"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <form class="d-flex m-auto" role="search">
+                        <input class="form-control search-nav" type="search" placeholder="Search" aria-label="Search"/>
+                        <div class="btn-group drp-dwn">
+                            <button
+                                class="btn dropdown-toggle dd"
+                                type="button"
+                                id="triggerId"
+                                data-bs-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >
+                                All Categories
+                            </button>
+                            <div
+                                class="dropdown-menu dropdown-menu-start"
+                                aria-labelledby="triggerId"
+                            >
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item disabled" href="#">Disabled action</a>
+                                <h6 class="dropdown-header">Section header</h6>
+                                <a class="dropdown-item" href="#">Action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">After divider action</a>
                             </div>
-                            <button class="btn btn-primary"
-                                style="border-radius: 0%; background: linear-gradient(180deg, #127FFF 0%, #0067FF 100%);"
-                                type="submit">Search</button>
-                        </form>
-                    </div>
-                    <div class="col-md-4" style="justify-content: end; display: flex;">
-                        <a href="#" style="padding: 10px;"><img src="assets/Profile.png" alt=""></a>
-                        <a href="#" style="padding: 10px;"><img src="assets/Message.png" alt=""></a>
-                        <a href="#" style="padding: 10px;"><img src="assets/Orders.png" alt=""></a>
-                        <a href="page4.html" style="padding: 10px;"><img src="assets/Cart.png" alt=""></a>
-                    </div>
+                        </div>
+                        <button class="btn btn-nav" type="submit">Search</button>
+                    </form>
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">
+                                <img src="assets/Profile.png" alt="">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">
+                                <img src="assets/Message.png" alt="">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">
+                                <img src="assets/Orders.png" alt="">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="page4.html">
+                                <img src="assets/Cart.png" alt="">
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
 
-        <div class="container-fluid" style="border: 1px solid #999; align-content: center;">
+        <div class="container-fluid border p-2">
             <div class="container p-0">
                 <div class="row align-items-center">
-                    <div class="col-md-8" style="display: flex; justify-content: start; margin-top: 20px;">
-                        <div>
-                            <ul class="nav justify-content-center">
-                                <li class="nav-item">
-                                    <a class="nav-link active" style="color: black;" href="#" aria-current="page" type="button"
-                                        id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                            src="assets/Vector.png" alt=""> All
-                                        Categories</a>
-                                    <div class="btn-group">
-                                        <div class="dropdown-menu dropdown-menu-start" aria-labelledby="triggerId">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item disabled" href="#">Disabled action</a>
-                                            <h6 class="dropdown-header">Section header</h6>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">After divider action</a>
-                                        </div>
+                    <!-- Left Navigation -->
+                    <div class="col-lg-8 overflow-x-auto">
+                        <nav>
+                            <ul class="nav justify-content-center flex-nowrap">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-dark" href="#" id="dropdownCategories"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <img src="assets/Vector.png" alt=""> All Categories
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownCategories">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item disabled" href="#">Disabled action</a>
+                                        <h6 class="dropdown-header">Section header</h6>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">After divider action</a>
                                     </div>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" style="color: black;" href="#">Hot offers</a>
+                                    <a class="nav-link text-dark" href="#">Hot offers</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" style="color: black;" href="#">Gift boxes</a>
+                                    <a class="nav-link text-dark" href="#">Gift boxes</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" style="color: black;" href="#">Projects</a>
+                                    <a class="nav-link text-dark" href="#">Projects</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" style="color: black;" href="#">Menu item</a>
+                                    <a class="nav-link text-dark" href="#">Menu item</a>
                                 </li>
-                                <li class="nav-item">
-                                    <div class="btn-group">
-                                        <button class="btn dropdown-toggle" type="button" id="triggerId"
-                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Help
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-start" aria-labelledby="triggerId">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item disabled" href="#">Disabled action</a>
-                                            <h6 class="dropdown-header">Section header</h6>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">After divider action</a>
-                                        </div>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-dark" href="#" id="dropdownHelp"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Help
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownHelp">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item disabled" href="#">Disabled action</a>
+                                        <h6 class="dropdown-header">Section header</h6>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">After divider action</a>
                                     </div>
                                 </li>
                             </ul>
-                        </div>
+                        </nav>
                     </div>
-        
-                    <div class="col-md-4" style="display: flex; justify-content: end;">
-                        <div>
+
+                    <!-- Right Options -->
+                    <div class="col-lg-4">
+                        <nav>
                             <ul class="nav justify-content-center">
-                                <li class="nav-item">
-                                    <div class="btn-group">
-                                        <button class="btn dropdown-toggle" type="button" id="triggerId"
-                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            English, USD
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-start" aria-labelledby="triggerId">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item disabled" href="#">Disabled action</a>
-                                            <h6 class="dropdown-header">Section header</h6>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">After divider action</a>
-                                        </div>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-dark" href="#" id="dropdownLanguage"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        English, USD
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownLanguage">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item disabled" href="#">Disabled action</a>
+                                        <h6 class="dropdown-header">Section header</h6>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">After divider action</a>
                                     </div>
                                 </li>
-                                <li class="nav-item">
-                                    <div class="btn-group">
-                                        <button class="btn dropdown-toggle" type="button" id="triggerId"
-                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Ship to <img src="assets/flag1.png" alt="">
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-start" aria-labelledby="triggerId">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item disabled" href="#">Disabled action</a>
-                                            <h6 class="dropdown-header">Section header</h6>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">After divider action</a>
-                                        </div>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-dark" href="#" id="dropdownShipping"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Ship to <img src="assets/flag1.png" alt="">
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownShipping">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item disabled" href="#">Disabled action</a>
+                                        <h6 class="dropdown-header">Section header</h6>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">After divider action</a>
                                     </div>
                                 </li>
                             </ul>
-                        </div>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -298,7 +361,7 @@
     </header>
 
     <main style="background-color: #f7fafc;">
-        <!-- place main content here -->
+        <!-- Breadcrumb -->
         <div class="container">
             <div class="row">
                 <nav style="--bs-breadcrumb-divider: '>'; padding: 20px; padding-left: 0;" aria-label="breadcrumb">
@@ -315,13 +378,14 @@
                 </nav>
             </div>
         </div>
-
+        
+        <!-- Details section -->
         <section style="padding-bottom: 10px;">
-            <div class="container" style="border: 1px solid rgb(204, 200, 200); padding: 15px 30px; border-radius: 10px; margin-bottom: 20px; background-color: white">
+            <div class="container sects">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="row">
-                            <div class="col-md-12" style="border: 1px solid rgb(204, 200, 200); padding: 17px; border-radius: 10px; margin-bottom: 20px; background-color: white;">
+                            <div class="col-md-12 sects" style="padding: 17px;">
                                 <img src="assets/image34s.png" id="main-image" style="display: block; margin: auto; width: 100%;" alt="">
                             </div>
                             <div class="col-md-12">
@@ -522,10 +586,11 @@
             </div>
         </section>
 
+        <!-- Description and reviews section -->
         <section>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-9" style="border: 1px solid rgb(204, 200, 200); padding: 15px; border-radius: 10px; margin-bottom: 25px; box-shadow: 0px 1px 3px 0px rgba(56, 56, 56, 0.1); background-color: white">
+                    <div class="col-md-9 sects2" style="margin-bottom: 25px; box-shadow: 0px 1px 3px 0px rgba(56, 56, 56, 0.1);">
                         <div class="row">
                             <div class="col-md-12" style="border-bottom: 1px solid rgba(222, 226, 231, 1);">
                                 <button class="des active">Description</button>
@@ -542,113 +607,117 @@
                                     Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
                                     reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
                             </div>
+
+                            <!-- Model and style -->
                             <div class="col-md-12">
                                 <div class="row">
-                                    <div class="col-md-3" style="padding-left: 20px; padding-right: 0;">
+                                    <div class="col-md-3 det-txt1">
                                         <p class="des2 bg">Model</p>
                                     </div>
-                                    <div class="col-md-5" style="padding-left: 0px;">
+                                    <div class="col-md-5 det-txt2">
                                         <p class="des2">#8786867</p>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-3" style="padding-left: 20px; padding-right: 0;">
+                                    <div class="col-md-3 det-txt1">
                                         <p class="des2 bg">Style</p>
                                     </div>
-                                    <div class="col-md-5" style="padding-left: 0px;">
+                                    <div class="col-md-5 det-txt2">
                                         <p class="des2">Classic style</p>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-3" style="padding-left: 20px; padding-right: 0;">
+                                    <div class="col-md-3 det-txt1">
                                         <p class="des2 bg">Certificate</p>
                                     </div>
-                                    <div class="col-md-5" style="padding-left: 0px;">
+                                    <div class="col-md-5 det-txt2">
                                         <p class="des2">ISO-898921212</p>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-3" style="padding-left: 20px; padding-right: 0;">
+                                    <div class="col-md-3 det-txt1">
                                         <p class="des2 bg">Size</p>
                                     </div>
-                                    <div class="col-md-5" style="padding-left: 0px;">
+                                    <div class="col-md-5 det-txt2">
                                         <p class="des2">34mm x 450mm x 19mm</p>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-3" style="padding-left: 20px; padding-right: 0;">
+                                    <div class="col-md-3 det-txt1">
                                         <p class="des2 bg">Memory</p>
                                     </div>
-                                    <div class="col-md-5" style="padding-left: 0px;">
+                                    <div class="col-md-5 det-txt2">
                                         <p class="des2">36GB RAM</p>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-md-12" style="margin-top: 20px;">
-                                <p style="padding: 5px; font-size: 17px; font-weight: 400; margin: 0; color: rgba(80, 80, 80, 1);">&#10003; &nbsp; Some great feature name here</p>
-                                <p style="padding: 5px; font-size: 17px; font-weight: 400; margin: 0; color: rgba(80, 80, 80, 1);">&#10003; &nbsp; Lorem ipsum dolor sit amet, consectetur </p>
-                                <p style="padding: 5px; font-size: 17px; font-weight: 400; margin: 0; color: rgba(80, 80, 80, 1);">&#10003; &nbsp; Duis aute irure dolor in reprehenderit</p>
-                                <p style="padding: 5px; font-size: 17px; font-weight: 400; margin: 0; color: rgba(80, 80, 80, 1);">&#10003; &nbsp; Some great feature name here</p>
+                                <p class="det-txt3">&#10003; &nbsp; Some great feature name here</p>
+                                <p class="det-txt3">&#10003; &nbsp; Lorem ipsum dolor sit amet, consectetur </p>
+                                <p class="det-txt3">&#10003; &nbsp; Duis aute irure dolor in reprehenderit</p>
+                                <p class="det-txt3">&#10003; &nbsp; Some great feature name here</p>
                             </div>
                         </div>
                     </div>
+                    <!-- You may like -->
                     <div class="col-md-3" style="padding-left: 20px;">
-                        <div style="border: 1px solid rgb(204, 200, 200); padding: 15px; border-radius: 10px; background-color: white">
+                        <div class="sects2">
                             <h6 style="font-size: 17px; font-weight: 600; margin: 0;">You may like</h6>
                             <div class="col-md-12" style="padding-right: 20px;">
                                 <div class="row">
                                     <div class="col-sm-4 col-md-12 col-lg-4">
-                                        <div style="border: 1px solid rgba(224, 224, 224, 1); border-radius: 10px; padding: 10px; margin-top: 12px;">
+                                        <div class="may-like">
                                             <img src="assets/image 302.png" style="display: block; margin: auto; width: 100%;" alt="">
                                         </div>
                                     </div>
                                     <div class="col-sm-8 col-md-12 col-lg-8" style="padding: 10px 0;">
-                                        <p style="font-size: 17px; font-weight: 400; margin: 0;">Men Blazers Sets Elegant Formal</p>
+                                        <p class="d-txt">Men Blazers Sets Elegant Formal</p>
                                         <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(139, 150, 165, 1);">$7.00 - $99.50</p>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-4 col-md-12 col-lg-4">
-                                        <div style="border: 1px solid rgba(224, 224, 224, 1); border-radius: 10px; padding: 10px; margin-top: 12px;">
+                                        <div class="may-like">
                                             <img src="assets/Bitmap3.png" style="display: block; margin: auto; width: 100%;" alt="">
                                         </div>
                                     </div>
                                     <div class="col-sm-8 col-md-12 col-lg-8" style="padding: 10px 0;">
-                                        <p style="font-size: 17px; font-weight: 400; margin: 0;">Men Shirt Sleeve Polo Contrast</p>
-                                        <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(139, 150, 165, 1);">$7.00 - $99.50</p>
+                                        <p class="d-txt">Men Shirt Sleeve Polo Contrast</p>
+                                        <p class="d-txt" style="color: rgba(139, 150, 165, 1);">$7.00 - $99.50</p>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-4 col-md-12 col-lg-4">
-                                        <div style="border: 1px solid rgba(224, 224, 224, 1); border-radius: 10px; padding: 10px; margin-top: 12px;">
+                                        <div class="may-like">
                                             <img src="assets/2 12.png" style="display: block; margin: auto; width: 100%;" alt="">
                                         </div>
                                     </div>
                                     <div class="col-sm-8 col-md-12 col-lg-8" style="padding: 10px 0;">
-                                        <p style="font-size: 17px; font-weight: 400; margin: 0;">Apple Watch Series Space Gray</p>
-                                        <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(139, 150, 165, 1);">$7.00 - $99.50</p>
+                                        <p class="d-txt">Apple Watch Series Space Gray</p>
+                                        <p class="d-txt" style="color: rgba(139, 150, 165, 1);">$7.00 - $99.50</p>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-4 col-md-12 col-lg-4">
-                                        <div style="border: 1px solid rgba(224, 224, 224, 1); border-radius: 10px; padding: 10px; margin-top: 12px;">
+                                        <div class="may-like">
                                             <img src="assets/image 252.png" style="display: block; margin: auto; width: 100%;" alt="">
                                         </div>
                                     </div>
                                     <div class="col-sm-8 col-md-12 col-lg-8" style="padding: 10px 0;">
-                                        <p style="font-size: 17px; font-weight: 400; margin: 0;">Basketball Crew Socks Long Stuff</p>
-                                        <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(139, 150, 165, 1);">$7.00 - $99.50</p>
+                                        <p class="d-txt">Basketball Crew Socks Long Stuff</p>
+                                        <p class="d-txt" style="color: rgba(139, 150, 165, 1);">$7.00 - $99.50</p>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-4 col-md-12 col-lg-4">
-                                        <div style="border: 1px solid rgba(224, 224, 224, 1); border-radius: 10px; padding: 10px; margin-top: 12px;">
+                                        <div class="may-like">
                                             <img src="assets/image 262.png" style="display: block; margin: auto; width: 100%;" alt="">
                                         </div>
                                     </div>
                                     <div class="col-sm-8 col-md-12 col-lg-8" style="padding: 10px 0;">
-                                        <p style="font-size: 17px; font-weight: 400; margin: 0;">New Summer Men's  castrol T-Shirts</p>
-                                        <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(139, 150, 165, 1);">$7.00 - $99.50</p>
+                                        <p class="d-txt">New Summer Men's  castrol T-Shirts</p>
+                                        <p class="d-txt" style="color: rgba(139, 150, 165, 1);">$7.00 - $99.50</p>
                                     </div>
                                 </div>
                             </div>
@@ -658,10 +727,11 @@
             </div>
         </section>
 
+        <!-- Related products -->
         <section>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12" style="border: 1px solid rgb(204, 200, 200); padding: 20px; padding-right: 30px; border-radius: 10px; margin-bottom: 25px; background-color: white">
+                    <div class="col-md-12 sects2" style="padding-right: 30px;">
                         <div class="row">
                             <div class="col-md-12">
                                 <h4 style="font-size: 21px; font-weight: 600; margin: 0">Related products</h4>
@@ -670,62 +740,62 @@
                                 <div class="row">
                                     <!-- 1 -->
                                     <div class="col-md-12 col-lg-2 p-2">
-                                        <div class="col-md-12" style="background: rgba(238, 238, 238, 1); border-radius: 5px; margin: 10px 0 0 5px;">
+                                        <div class="col-md-12 rel-bg">
                                             <img src="assets/image 242.png" style="display: block; margin: auto; padding: 20px 0;" alt="">
                                         </div>
                                         <div class="col-md-12" style="margin: 10px 0 0 5px;">
-                                            <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(80, 80, 80, 1);">Xiaomi Redmi 8 <br> Original</p>
-                                            <p style="font-size: 17px; font-weight: 400; margin: 0; margin-top: 3px; color: rgba(139, 150, 165, 1);">$32.00-$40.00</p>
+                                            <p class="d-txt" style="color: rgba(80, 80, 80, 1);">Xiaomi Redmi 8 <br> Original</p>
+                                            <p class="d-txt" style="margin-top: 3px; color: rgba(139, 150, 165, 1);">$32.00-$40.00</p>
                                         </div>
                                     </div>
                                     <!-- 2 -->
                                     <div class="col-md-12 col-lg-2 p-2">
-                                        <div class="col-md-12" style="background: rgba(238, 238, 238, 1); border-radius: 5px; margin: 10px 0 0 5px;">
+                                        <div class="col-md-12 rel-bg">
                                             <img src="assets/image_35-removebg-preview.png" style="display: block; margin: auto; padding: 20px 0;" alt="">
                                         </div>
                                         <div class="col-md-12" style="margin: 10px 0 0 5px;">
-                                            <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(80, 80, 80, 1);">Xiaomi Redmi 8 <br> Original</p>
-                                            <p style="font-size: 17px; font-weight: 400; margin: 0; margin-top: 3px; color: rgba(139, 150, 165, 1);">$32.00-$40.00</p>
+                                            <p class="d-txt" style="color: rgba(80, 80, 80, 1);">Xiaomi Redmi 8 <br> Original</p>
+                                            <p class="d-txt" style="margin-top: 3px; color: rgba(139, 150, 165, 1);">$32.00-$40.00</p>
                                         </div>
                                     </div>
                                     <!-- 3 -->
                                     <div class="col-md-12 col-lg-2 p-2">
-                                        <div class="col-md-12" style="background: rgba(238, 238, 238, 1); border-radius: 5px; margin: 10px 0 0 5px;">
+                                        <div class="col-md- rel-bg">
                                             <img src="assets/image_86-removebg-preview.png" style="display: block; margin: auto; padding: 13px 0;" alt="">
                                         </div>
                                         <div class="col-md-12" style="margin: 10px 0 0 5px;">
-                                            <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(80, 80, 80, 1);">Xiaomi Redmi 8 <br> Original</p>
-                                            <p style="font-size: 17px; font-weight: 400; margin: 0; margin-top: 3px; color: rgba(139, 150, 165, 1);">$32.00-$40.00</p>
+                                            <p class="d-txt" style="color: rgba(80, 80, 80, 1);">Xiaomi Redmi 8 <br> Original</p>
+                                            <p class="d-txt" style="margin-top: 3px; color: rgba(139, 150, 165, 1);">$32.00-$40.00</p>
                                         </div>
                                     </div>
                                     <!-- 4 -->
                                     <div class="col-md-12 col-lg-2 p-2">
-                                        <div class="col-md-12" style="background: rgba(238, 238, 238, 1); border-radius: 5px; margin: 10px 0 0 5px;">
+                                        <div class="col-md-12 rel-bg">
                                             <img src="assets/Bitmap-removebg-preview.png" style="display: block; margin: auto; padding: 30px 0;" alt="">
                                         </div>
                                         <div class="col-md-12" style="margin: 10px 0 0 5px;">
-                                            <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(80, 80, 80, 1);">Xiaomi Redmi 8 <br> Original</p>
-                                            <p style="font-size: 17px; font-weight: 400; margin: 0; margin-top: 3px; color: rgba(139, 150, 165, 1);">$32.00-$40.00</p>
+                                            <p class="d-txt" style="color: rgba(80, 80, 80, 1);">Xiaomi Redmi 8 <br> Original</p>
+                                            <p class="d-txt" style="margin-top: 3px; color: rgba(139, 150, 165, 1);">$32.00-$40.00</p>
                                         </div>
                                     </div>
                                     <!-- 5 -->
                                     <div class="col-md-12 col-lg-2 p-2">
-                                        <div class="col-md-12" style="background: rgba(238, 238, 238, 1); border-radius: 5px; margin: 10px 0 0 5px;">
+                                        <div class="col-md-12 rel-bg">
                                             <img src="assets/image_85-removebg-preview.png" style="display: block; margin: auto; padding: 18px 0;" alt="">
                                         </div>
                                         <div class="col-md-12" style="margin: 10px 0 0 5px;">
-                                            <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(80, 80, 80, 1);">Xiaomi Redmi 8 <br> Original</p>
-                                            <p style="font-size: 17px; font-weight: 400; margin: 0; margin-top: 3px; color: rgba(139, 150, 165, 1);">$32.00-$40.00</p>
+                                            <p class="d-txt" style="color: rgba(80, 80, 80, 1);">Xiaomi Redmi 8 <br> Original</p>
+                                            <p class="d-txt" style="margin-top: 3px; color: rgba(139, 150, 165, 1);">$32.00-$40.00</p>
                                         </div>
                                     </div>
                                     <!-- 6 -->
                                     <div class="col-md-12 col-lg-2 p-2">
-                                        <div class="col-md-12" style="background: rgba(238, 238, 238, 1); border-radius: 5px; margin: 10px 0 0 5px;">
+                                        <div class="col-md-12 rel-bg">
                                             <img src="assets/rasm-removebg-preview.png" style="display: block; margin: auto; padding: 13px 0;" alt="">
                                         </div>
                                         <div class="col-md-12" style="margin: 10px 0 0 5px;">
-                                            <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(80, 80, 80, 1);">Xiaomi Redmi 8 <br> Original</p>
-                                            <p style="font-size: 17px; font-weight: 400; margin: 0; margin-top: 3px; color: rgba(139, 150, 165, 1);">$32.00-$40.00</p>
+                                            <p class="d-txt" style="color: rgba(80, 80, 80, 1);">Xiaomi Redmi 8 <br> Original</p>
+                                            <p class="d-txt" style="margin-top: 3px; color: rgba(139, 150, 165, 1);">$32.00-$40.00</p>
                                         </div>
                                     </div>
                                 </div>
@@ -736,6 +806,7 @@
             </div>
         </section>
 
+        <!-- Promo Banner -->
         <section>
             <div class="container">
                 <div class="row">
