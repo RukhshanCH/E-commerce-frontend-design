@@ -148,6 +148,12 @@
             .search-nav{
                 width: 100%;
             }
+            .save-item2{
+                display: flex;
+            }
+            .save-item3{
+                margin-left: 15px;
+            }
         }
         @media screen and (max-width: 992px) {
             .save-img{
@@ -155,6 +161,9 @@
             object-fit: contain;
             display: block;
             margin: auto;
+            }
+            .dis{
+                display: none;
             }
         }
     </style>
@@ -329,7 +338,7 @@
                     <div class="col-md-12 p-0">
                         <div class="row">
                             <!-- Items in the cart -->
-                            <div class="col-md-9">
+                            <div class="col-lg-9">
                                 <div class="col-md-12 sects" id="product-list">
 
                                     <!-- Toast -->
@@ -485,6 +494,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- Remove all button -->
                                     <div class="row">
                                         <div class="col-md-6" style="margin-top: 5px;">
                                             <a class="cart-btn2" href="page2.html">
@@ -500,8 +510,8 @@
                                 </div>
                             </div>
                             <!-- Checkout -->
-                            <div class="col-md-3">
-                                <div class="col-md-12" style="border: 1px solid rgb(204, 200, 200); padding: 15px; border-radius: 10px; margin-bottom: 25px; background-color: white">
+                            <div class="col-lg-3">
+                                <div class="col-md-12 dis" style="border: 1px solid rgb(204, 200, 200); padding: 15px; border-radius: 10px; margin-bottom: 25px; background-color: white">
                                     <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(80, 80, 80, 1);">Have a coupon?</p>
                                     <div style="display: flex; overflow: hidden; border-radius: 6px; border: 1px solid rgba(222, 226, 231, 1); margin: 8px 0;">
                                         <input id="inp" type="text" placeholder="Add a coupon" style="border: transparent; border-right: 1px solid rgba(222, 226, 231, 1); padding: 5px 10px;">
@@ -570,7 +580,7 @@
         </section>
 
         <section>
-            <div class="container">
+            <div class="container dis">
                 <div class="row">
                     <div class="col-md-9 p-0" style="margin-bottom: 25px;">
                         <div class="row">
@@ -633,13 +643,13 @@
 
                                 <!-- 1 -->
                                 <div class="col-md-3 p-2">
-                                    <div class="col-md-12">
-                                        <div class="col-md-12" style="background: rgba(238, 238, 238, 1); border-radius: 6px; text-align: center;">
+                                    <div class="col-md-12 save-item2">
+                                        <div class="col-md-12 col-3" style="background: rgba(238, 238, 238, 1); border-radius: 6px; text-align: center;">
                                             <img src="assets/image_32-removebg-preview.png" class="save-img" alt="">
                                         </div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 col-9 save-item3">
                                             <h4 style="font-size: 19px; font-weight: 600; margin: 10px 0;">$99.50</h4>
-                                            <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(96, 96, 96, 1); line-height: 24px;">GoPro HERO6 4K Action <br> Camera - Black</p>
+                                            <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(96, 96, 96, 1); line-height: 24px;">GoPro HERO6 4K Action Camera - Black</p>
                                             <button class="cart-btn3 liveToastBtn" onclick="add_item('GoPro HERO6 4K Action <br> Camera - Black', '$99.50', 'assets/image_32-removebg-preview.png')" style="padding: 5px 10px; margin-top: 15px;">
                                                 <span class="cart-btn3-txt"><img src="assets/Vector12.png" style="margin-right: 10px; margin-top: -5px;" alt=""> Move to cart</span>
                                             </button>
@@ -648,13 +658,13 @@
                                 </div>
                                 <!-- 2 -->
                                 <div class="col-md-3 p-2">
-                                    <div class="col-md-12">
+                                    <div class="col-md-12 save-item2">
                                         <div class="col-md-12" style="background: rgba(238, 238, 238, 1); border-radius: 6px; text-align: center;">
                                             <img src="assets/image_22-removebg-preview.png" class="save-img" alt="">
                                         </div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 save-item3">
                                             <h4 style="font-size: 19px; font-weight: 600; margin: 10px 0;">$99.50</h4>
-                                            <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(96, 96, 96, 1); line-height: 24px;">GoPro HERO6 4K Action <br> Camera - Black</p>
+                                            <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(96, 96, 96, 1); line-height: 24px;">GoPro HERO6 4K Action Camera - Black</p>
                                             <button class="cart-btn3 liveToastBtn" onclick="add_item('GoPro HERO6 4K Action <br> Camera - Black', '$99.50', 'assets/image_22-removebg-preview.png')" style="padding: 5px 10px; margin-top: 15px;">
                                                 <span class="cart-btn3-txt"><img src="assets/Vector12.png" style="margin-right: 10px; margin-top: -5px;" alt=""> Move to cart</span>
                                             </button>
@@ -663,13 +673,13 @@
                                 </div>
                                 <!-- 3 -->
                                 <div class="col-md-3 p-2">
-                                    <div class="col-md-12">
+                                    <div class="col-md-12 save-item2">
                                         <div class="col-md-12" style="background: rgba(238, 238, 238, 1); border-radius: 6px; text-align: center;">
                                             <img src="assets/image_35-removebg-preview2.png" class="save-img" alt="">
                                         </div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 save-item3">
                                             <h4 style="font-size: 19px; font-weight: 600; margin: 10px 0;">$99.50</h4>
-                                            <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(96, 96, 96, 1); line-height: 24px;">GoPro HERO6 4K Action <br> Camera - Black</p>
+                                            <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(96, 96, 96, 1); line-height: 24px;">GoPro HERO6 4K Action Camera - Black</p>
                                             <button class="cart-btn3 liveToastBtn" onclick="add_item('GoPro HERO6 4K Action <br> Camera - Black', '$99.50', 'assets/image_35-removebg-preview2.png')" style="padding: 5px 10px; margin-top: 15px;">
                                                 <span class="cart-btn3-txt"><img src="assets/Vector12.png" style="margin-right: 10px; margin-top: -5px;" alt=""> Move to cart</span>
                                             </button>
@@ -678,13 +688,13 @@
                                 </div>
                                 <!-- 4 -->
                                 <div class="col-md-3 p-2">
-                                    <div class="col-md-12">
+                                    <div class="col-md-12 save-item2">
                                         <div class="col-md-12" style="background: rgba(238, 238, 238, 1); border-radius: 6px; text-align: center;">
                                             <img src="assets/image_34-removebg-preview.png" class="save-img" style="padding: 43px 0;" alt="">
                                         </div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 save-item3">
                                             <h4 style="font-size: 19px; font-weight: 600; margin: 10px 0;">$99.50</h4>
-                                            <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(96, 96, 96, 1); line-height: 24px;">GoPro HERO6 4K Action <br> Camera - Black</p>
+                                            <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(96, 96, 96, 1); line-height: 24px;">GoPro HERO6 4K Action Camera - Black</p>
                                             <button class="cart-btn3 liveToastBtn" onclick="add_item('GoPro HERO6 4K Action <br> Camera - Black', '$99.50', 'assets/image_34-removebg-preview.png')" style="padding: 5px 10px; margin-top: 15px;">
                                                 <span class="cart-btn3-txt"><img src="assets/Vector12.png" style="margin-right: 10px; margin-top: -5px;" alt=""> Move to cart</span>
                                             </button>
@@ -797,6 +807,30 @@
         
     <script>
 
+        function myFunction() {
+            save_later('T-shirts with multiple colors, for men and lady', '$170.50', 'assets/image34s.png')
+        }
+
+        const shouldRun = localStorage.getItem("runFunction");
+        const shouldRun2 = localStorage.getItem("runFunction2");
+
+        if (shouldRun2 === "true") {
+            myFunction()
+            localStorage.removeItem("runFunction2");
+        }
+
+        if (shouldRun === "true") {
+            const savedItems = JSON.parse(localStorage.getItem("savedItems")) || [];
+
+            savedItems.forEach(item => {
+                save_later(item.title, item.price, item.imgurl);
+            });
+
+            localStorage.removeItem("runFunction");
+            localStorage.removeItem("savedItems");
+            localStorage.removeItem("save_later");
+        }
+
         const toastTriggers = document.querySelectorAll('.liveToastBtn');
         const toastLiveExample = document.getElementById('liveToast');
 
@@ -903,14 +937,14 @@
             const productHTML = `
                 <!-- 1 -->
                     <div class="col-md-3 p-2">
-                        <div class="col-md-12">
+                        <div class="col-md-12 save-item2">
                             <div class="col-md-12" style="background: rgba(238, 238, 238, 1); border-radius: 6px; text-align: center;">
                                 <img src="${imageSrc}" class="save-img" alt="">
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12 save-item3">
                                 <h4 style="font-size: 19px; font-weight: 600; margin: 10px 0;">${price}</h4>
                                 <p style="font-size: 17px; font-weight: 400; margin: 0; color: rgba(96, 96, 96, 1); line-height: 24px;">${name}</p>
-                                <button class="cart-btn3 liveToastBtn" onclick="add_item('GoPro HERO6 4K Action <br> Camera - Black', '$99.50', 'assets/image_32-removebg-preview.png')" style="padding: 5px 10px; margin-top: 15px;">
+                                <button class="cart-btn3 liveToastBtn" onclick="add_item('${name}', '${price}', '${imageSrc}')" style="padding: 5px 10px; margin-top: 15px;">
                                     <span class="cart-btn3-txt"><img src="assets/Vector12.png" style="margin-right: 10px; margin-top: -5px;" alt=""> Move to cart</span>
                                 </button>
                             </div>

@@ -203,6 +203,25 @@
             color: rgba(255, 144, 23, 1);
         }
 
+        .heart {
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        transition: fill 0.3s;
+        fill: none;
+        stroke: rgba(13, 110, 253, 1);;
+        stroke-width: 2;
+        margin-right: 3px;
+        margin-top: -1px;
+        border: 1px solid rgba(222, 226, 231, 1);
+        padding: 5px;
+        }
+        .heart:hover,
+        .heart:focus {
+        fill: rgba(13, 110, 253, 1);
+        outline: none;
+        }
+
         #container.grid-view {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -398,429 +417,440 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
-                    <!-- 1 -->
-                    <div class="row" style="border-top: 1px solid rgba(139, 150, 165, 0.4);">
-                        <ul style="list-style: none; padding: 20px; padding-left: 0; margin: 0;">
-                            <h6 style="font-size: 17px;">Category</h6>
-                            <li style="margin-top: 20px;">
-                                <a href=""
-                                    style="font-size: 17px; text-decoration: none; color: rgba(80, 80, 80, 1);">Mobile
-                                    accessory</a>
-                            </li>
-                            <li style="margin-top: 12px;">
-                                <a href=""
-                                    style="font-size: 17px; text-decoration: none; color: rgba(80, 80, 80, 1);">Electronics</a>
-                            </li>
-                            <li style="margin-top: 12px;">
-                                <a href=""
-                                    style="font-size: 17px; text-decoration: none; color: rgba(80, 80, 80, 1);">Smartphones</a>
-                            </li>
-                            <li style="margin-top: 12px;">
-                                <a href=""
-                                    style="font-size: 17px; text-decoration: none; color: rgba(80, 80, 80, 1);">Modern
-                                    tech</a>
-                            </li>
-                            <p class="d-inline-flex gap-1">
-                                <a class="btn"
-                                    style="padding: 0; margin-top: 12px; font-size: 17px; color: rgba(13, 110, 253, 1);"
-                                    data-bs-toggle="collapse" href="#collapseExample" role="button"
-                                    aria-expanded="false" aria-controls="collapseExample">
-                                    See all
-                                </a>
-                            </p>
-                            <div class="collapse" id="collapseExample">
-                                <li>
+                <div class="col-lg-3">
+                    <nav class="navbar bg-light d-lg-none my-2">
+                        <button class="btn btn-outline-dark w-100 d-flex align-items-center justify-content-center" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-funnel me-2" viewBox="0 0 16 16">
+                            <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .4.8L10 8.333V13.5a.5.5 0 0 1-.724.447l-2-1A.5.5 0 0 1 7 12.5V8.333L1.6 1.8a.5.5 0 0 1-.1-.55z"/>
+                            </svg>
+                            Filter
+                        </button>
+                    </nav>
+
+                    <div class="collapse d-lg-block" id="sidebarMenu">
+                        <!-- 1 -->
+                        <div class="row" style="border-top: 1px solid rgba(139, 150, 165, 0.4);">
+                            <ul style="list-style: none; padding: 20px; padding-left: 0; margin: 0;">
+                                <h6 style="font-size: 17px;">Category</h6>
+                                <li style="margin-top: 20px;">
                                     <a href=""
-                                        style="font-size: 17px; text-decoration: none; color: rgba(80, 80, 80, 1);">Automobiles</a>
+                                        style="font-size: 17px; text-decoration: none; color: rgba(80, 80, 80, 1);">Mobile
+                                        accessory</a>
                                 </li>
                                 <li style="margin-top: 12px;">
                                     <a href=""
-                                        style="font-size: 17px; text-decoration: none; color: rgba(80, 80, 80, 1);">Clothes
-                                        and wear</a>
+                                        style="font-size: 17px; text-decoration: none; color: rgba(80, 80, 80, 1);">Electronics</a>
                                 </li>
                                 <li style="margin-top: 12px;">
                                     <a href=""
-                                        style="font-size: 17px; text-decoration: none; color: rgba(80, 80, 80, 1);">Computer
-                                        and tech</a>
+                                        style="font-size: 17px; text-decoration: none; color: rgba(80, 80, 80, 1);">Smartphones</a>
                                 </li>
                                 <li style="margin-top: 12px;">
                                     <a href=""
-                                        style="font-size: 17px; text-decoration: none; color: rgba(80, 80, 80, 1);">Home
-                                        interiors</a>
+                                        style="font-size: 17px; text-decoration: none; color: rgba(80, 80, 80, 1);">Modern
+                                        tech</a>
                                 </li>
-                            </div>
-                        </ul>
-                    </div>
-                    <!-- 2 -->
-                    <div class="row" style="border-top: 1px solid rgba(139, 150, 165, 0.4);">
-                        <ul style="list-style: none; padding: 20px; padding-left: 0; margin: 0;">
-                            <h6 style="font-size: 17px;">Brands</h6>
-                            <li style="margin-top: 15px;">
-                                <div class="form-check">
-                                    <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);"
-                                        type="checkbox" onclick="add_feature('Samsung')" value="" id="checkDefault">
-                                    <label class="form-check-label" for="checkChecked">
-                                        <p
-                                            style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
-                                            Samsung
-                                        </p>
-                                    </label>
+                                <p class="d-inline-flex gap-1">
+                                    <a class="btn"
+                                        style="padding: 0; margin-top: 12px; font-size: 17px; color: rgba(13, 110, 253, 1);"
+                                        data-bs-toggle="collapse" href="#collapseExample" role="button"
+                                        aria-expanded="false" aria-controls="collapseExample">
+                                        See all
+                                    </a>
+                                </p>
+                                <div class="collapse" id="collapseExample">
+                                    <li>
+                                        <a href=""
+                                            style="font-size: 17px; text-decoration: none; color: rgba(80, 80, 80, 1);">Automobiles</a>
+                                    </li>
+                                    <li style="margin-top: 12px;">
+                                        <a href=""
+                                            style="font-size: 17px; text-decoration: none; color: rgba(80, 80, 80, 1);">Clothes
+                                            and wear</a>
+                                    </li>
+                                    <li style="margin-top: 12px;">
+                                        <a href=""
+                                            style="font-size: 17px; text-decoration: none; color: rgba(80, 80, 80, 1);">Computer
+                                            and tech</a>
+                                    </li>
+                                    <li style="margin-top: 12px;">
+                                        <a href=""
+                                            style="font-size: 17px; text-decoration: none; color: rgba(80, 80, 80, 1);">Home
+                                            interiors</a>
+                                    </li>
                                 </div>
-                            </li>
-                            <li style="margin-top: 15px;">
-                                <div class="form-check">
-                                    <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);"
-                                        type="checkbox" onclick="add_feature('Apple')" value="" id="checkDefault">
-                                    <label class="form-check-label" for="checkChecked">
-                                        <p
-                                            style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
-                                            Apple</p>
-                                    </label>
-                                </div>
-                            </li>
-                            <li style="margin-top: 15px;">
-                                <div class="form-check">
-                                    <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);"
-                                        type="checkbox" onclick="add_feature('Huawei')" value="" id="checkDefault">
-                                    <label class="form-check-label" for="checkChecked">
-                                        <p
-                                            style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
-                                            Huawei</p>
-                                    </label>
-                                </div>
-                            </li>
-                            <li style="margin-top: 15px;">
-                                <div class="form-check">
-                                    <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);"
-                                        type="checkbox" onclick="add_feature('Poco')" value="" id="checkDefault">
-                                    <label class="form-check-label" for="checkChecked">
-                                        <p
-                                            style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
-                                            Poco</p>
-                                    </label>
-                                </div>
-                            </li>
-                            <li style="margin-top: 15px;">
-                                <div class="form-check">
-                                    <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);"
-                                        type="checkbox" onclick="add_feature('Lenovo')" value="" id="checkDefault">
-                                    <label class="form-check-label" for="checkChecked">
-                                        <p
-                                            style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
-                                            Lenovo</p>
-                                    </label>
-                                </div>
-                            </li>
-                            <p class="d-inline-flex gap-1">
-                                <a class="btn"
-                                    style="padding: 0; margin-top: 12px; font-size: 17px; color: rgba(13, 110, 253, 1);"
-                                    data-bs-toggle="collapse" href="#collapseExample" role="button"
-                                    aria-expanded="false" aria-controls="collapseExample">
-                                    See all
-                                </a>
-                            </p>
-                            <div class="collapse" id="collapseExample">
-                                <li>
+                            </ul>
+                        </div>
+                        <!-- 2 -->
+                        <div class="row" style="border-top: 1px solid rgba(139, 150, 165, 0.4);">
+                            <ul style="list-style: none; padding: 20px; padding-left: 0; margin: 0;">
+                                <h6 style="font-size: 17px;">Brands</h6>
+                                <li style="margin-top: 15px;">
                                     <div class="form-check">
                                         <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);"
-                                            type="checkbox" onclick="add_feature('Oppo')" value="" id="checkDefault">
+                                            type="checkbox" onclick="add_feature('Samsung')" value="" id="checkDefault">
                                         <label class="form-check-label" for="checkChecked">
                                             <p
                                                 style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
-                                                Oppo</p>
+                                                Samsung
+                                            </p>
                                         </label>
                                     </div>
                                 </li>
                                 <li style="margin-top: 15px;">
                                     <div class="form-check">
                                         <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);"
-                                            type="checkbox" onclick="add_feature('OnePlus')" value="" id="checkDefault">
+                                            type="checkbox" onclick="add_feature('Apple')" value="" id="checkDefault">
                                         <label class="form-check-label" for="checkChecked">
                                             <p
                                                 style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
-                                                One plus</p>
+                                                Apple</p>
                                         </label>
                                     </div>
                                 </li>
                                 <li style="margin-top: 15px;">
                                     <div class="form-check">
                                         <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);"
-                                            type="checkbox" onclick="add_feature('Vivo')" value="" id="checkDefault">
+                                            type="checkbox" onclick="add_feature('Huawei')" value="" id="checkDefault">
                                         <label class="form-check-label" for="checkChecked">
                                             <p
                                                 style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
-                                                Vivo</p>
+                                                Huawei</p>
                                         </label>
                                     </div>
                                 </li>
-                            </div>
-                        </ul>
-                    </div>
-                    <!-- 3 -->
-                    <div class="row" style="border-top: 1px solid rgba(139, 150, 165, 0.4);">
-                        <ul style="list-style: none; padding: 20px; padding-left: 0; margin: 0;">
-                            <h6 style="font-size: 17px;">Features</h6>
-                            <li style="margin-top: 15px;">
-                                <div class="form-check">
-                                    <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);"
-                                        type="checkbox" onclick="add_feature('Metallic')" value="" id="checkDefault">
-                                    <label class="form-check-label" for="checkChecked">
-                                        <p
-                                            style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
-                                            Metallic</p>
-                                    </label>
-                                </div>
-                            </li>
-                            <li style="margin-top: 15px;">
-                                <div class="form-check">
-                                    <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);"
-                                        type="checkbox" onclick="add_feature('Plastic cover')" value=""
-                                        id="checkDefault">
-                                    <label class="form-check-label" for="checkChecked">
-                                        <p
-                                            style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
-                                            Plastic cover</p>
-                                    </label>
-                                </div>
-                            </li>
-                            <li style="margin-top: 15px;">
-                                <div class="form-check">
-                                    <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);"
-                                        type="checkbox" onclick="add_feature('8GB Ram')" value="" id="checkDefault">
-                                    <label class="form-check-label" for="checkChecked">
-                                        <p
-                                            style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
-                                            8GB Ram</p>
-                                    </label>
-                                </div>
-                            </li>
-                            <li style="margin-top: 15px;">
-                                <div class="form-check">
-                                    <input class="form-check-input" onclick="add_feature('Super power')"
-                                        style="border: 2px solid rgba(80, 80, 80, 0.4);" type="checkbox" value=""
-                                        id="checkDefault">
-                                    <label class="form-check-label" for="checkChecked">
-                                        <p
-                                            style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
-                                            Super power</p>
-                                    </label>
-                                </div>
-                            </li>
-                            <li style="margin-top: 15px;">
-                                <div class="form-check">
-                                    <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);"
-                                        type="checkbox" onclick="add_feature('Large Memory')" value=""
-                                        id="checkDefault">
-                                    <label class="form-check-label" for="checkChecked">
-                                        <p
-                                            style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
-                                            Large Memory</p>
-                                    </label>
-                                </div>
-                            </li>
-                            <p class="d-inline-flex gap-1">
-                                <a class="btn"
-                                    style="padding: 0; margin-top: 12px; font-size: 17px; color: rgba(13, 110, 253, 1);"
-                                    data-bs-toggle="collapse" href="#collapseExample" role="button"
-                                    aria-expanded="false" aria-controls="collapseExample">
-                                    See all
-                                </a>
-                            </p>
-                            <div class="collapse" id="collapseExample">
-                                <li>
+                                <li style="margin-top: 15px;">
                                     <div class="form-check">
                                         <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);"
-                                            type="checkbox" onclick="add_feature('1TB Storage')" value=""
+                                            type="checkbox" onclick="add_feature('Poco')" value="" id="checkDefault">
+                                        <label class="form-check-label" for="checkChecked">
+                                            <p
+                                                style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
+                                                Poco</p>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li style="margin-top: 15px;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);"
+                                            type="checkbox" onclick="add_feature('Lenovo')" value="" id="checkDefault">
+                                        <label class="form-check-label" for="checkChecked">
+                                            <p
+                                                style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
+                                                Lenovo</p>
+                                        </label>
+                                    </div>
+                                </li>
+                                <p class="d-inline-flex gap-1">
+                                    <a class="btn"
+                                        style="padding: 0; margin-top: 12px; font-size: 17px; color: rgba(13, 110, 253, 1);"
+                                        data-bs-toggle="collapse" href="#collapseExample" role="button"
+                                        aria-expanded="false" aria-controls="collapseExample">
+                                        See all
+                                    </a>
+                                </p>
+                                <div class="collapse" id="collapseExample">
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);"
+                                                type="checkbox" onclick="add_feature('Oppo')" value="" id="checkDefault">
+                                            <label class="form-check-label" for="checkChecked">
+                                                <p
+                                                    style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
+                                                    Oppo</p>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li style="margin-top: 15px;">
+                                        <div class="form-check">
+                                            <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);"
+                                                type="checkbox" onclick="add_feature('OnePlus')" value="" id="checkDefault">
+                                            <label class="form-check-label" for="checkChecked">
+                                                <p
+                                                    style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
+                                                    One plus</p>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li style="margin-top: 15px;">
+                                        <div class="form-check">
+                                            <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);"
+                                                type="checkbox" onclick="add_feature('Vivo')" value="" id="checkDefault">
+                                            <label class="form-check-label" for="checkChecked">
+                                                <p
+                                                    style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
+                                                    Vivo</p>
+                                            </label>
+                                        </div>
+                                    </li>
+                                </div>
+                            </ul>
+                        </div>
+                        <!-- 3 -->
+                        <div class="row" style="border-top: 1px solid rgba(139, 150, 165, 0.4);">
+                            <ul style="list-style: none; padding: 20px; padding-left: 0; margin: 0;">
+                                <h6 style="font-size: 17px;">Features</h6>
+                                <li style="margin-top: 15px;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);"
+                                            type="checkbox" onclick="add_feature('Metallic')" value="" id="checkDefault">
+                                        <label class="form-check-label" for="checkChecked">
+                                            <p
+                                                style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
+                                                Metallic</p>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li style="margin-top: 15px;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);"
+                                            type="checkbox" onclick="add_feature('Plastic cover')" value=""
                                             id="checkDefault">
                                         <label class="form-check-label" for="checkChecked">
                                             <p
                                                 style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
-                                                1TB Storage</p>
+                                                Plastic cover</p>
                                         </label>
                                     </div>
                                 </li>
                                 <li style="margin-top: 15px;">
                                     <div class="form-check">
                                         <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);"
-                                            type="checkbox" onclick="add_feature('Display')" value="" id="checkDefault">
+                                            type="checkbox" onclick="add_feature('8GB Ram')" value="" id="checkDefault">
                                         <label class="form-check-label" for="checkChecked">
                                             <p
                                                 style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
-                                                Display</p>
+                                                8GB Ram</p>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li style="margin-top: 15px;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" onclick="add_feature('Super power')"
+                                            style="border: 2px solid rgba(80, 80, 80, 0.4);" type="checkbox" value=""
+                                            id="checkDefault">
+                                        <label class="form-check-label" for="checkChecked">
+                                            <p
+                                                style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
+                                                Super power</p>
                                         </label>
                                     </div>
                                 </li>
                                 <li style="margin-top: 15px;">
                                     <div class="form-check">
                                         <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);"
-                                            onclick="add_feature('Colors')" type="checkbox" value="" id="checkDefault">
+                                            type="checkbox" onclick="add_feature('Large Memory')" value=""
+                                            id="checkDefault">
                                         <label class="form-check-label" for="checkChecked">
                                             <p
                                                 style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
-                                                Colors</p>
+                                                Large Memory</p>
                                         </label>
                                     </div>
                                 </li>
+                                <p class="d-inline-flex gap-1">
+                                    <a class="btn"
+                                        style="padding: 0; margin-top: 12px; font-size: 17px; color: rgba(13, 110, 253, 1);"
+                                        data-bs-toggle="collapse" href="#collapseExample" role="button"
+                                        aria-expanded="false" aria-controls="collapseExample">
+                                        See all
+                                    </a>
+                                </p>
+                                <div class="collapse" id="collapseExample">
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);"
+                                                type="checkbox" onclick="add_feature('1TB Storage')" value=""
+                                                id="checkDefault">
+                                            <label class="form-check-label" for="checkChecked">
+                                                <p
+                                                    style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
+                                                    1TB Storage</p>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li style="margin-top: 15px;">
+                                        <div class="form-check">
+                                            <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);"
+                                                type="checkbox" onclick="add_feature('Display')" value="" id="checkDefault">
+                                            <label class="form-check-label" for="checkChecked">
+                                                <p
+                                                    style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
+                                                    Display</p>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li style="margin-top: 15px;">
+                                        <div class="form-check">
+                                            <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);"
+                                                onclick="add_feature('Colors')" type="checkbox" value="" id="checkDefault">
+                                            <label class="form-check-label" for="checkChecked">
+                                                <p
+                                                    style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
+                                                    Colors</p>
+                                            </label>
+                                        </div>
+                                    </li>
+                                </div>
+                            </ul>
+                        </div>
+                        <!-- 4 -->
+                        <div class="row" style="border-top: 1px solid rgba(139, 150, 165, 0.4);">
+                            <h6 style="font-size: 17px; padding: 20px; padding-left: 0; margin: 0;">Price range</h6>
+                            <div class="slider-container">
+                                <div class="range" id="range"></div>
+                                <input type="range" id="min" min="0" max="100" value="30">
+                                <input type="range" id="max" min="0" max="100" value="65">
                             </div>
-                        </ul>
-                    </div>
-                    <!-- 4 -->
-                    <div class="row" style="border-top: 1px solid rgba(139, 150, 165, 0.4);">
-                        <h6 style="font-size: 17px; padding: 20px; padding-left: 0; margin: 0;">Price range</h6>
-                        <div class="slider-container">
-                            <div class="range" id="range"></div>
-                            <input type="range" id="min" min="0" max="100" value="30">
-                            <input type="range" id="max" min="0" max="100" value="65">
-                        </div>
-                        <div class="values">
-                            Min: <input type="number" style="border: 1px solid rgba(222, 226, 231, 1);" id="min-input"
-                                min="0" max="100" value="50">
-                            Max: <input type="number" style="border: 1px solid rgba(222, 226, 231, 1);" id="max-input"
-                                min="0" max="100" value="50">
-                        </div>
-                        <div>
-                            <a name="" id="" class="btn btn-light w-75"
-                                style="border: 1px solid rgba(222, 226, 231, 1); color: rgba(13, 110, 253, 1); margin: auto; display: block; margin-top: 5px; background: white; font-weight: 500;"
-                                href="#" role="button">Apply</a>
-                        </div>
+                            <div class="values">
+                                Min: <input type="number" style="border: 1px solid rgba(222, 226, 231, 1);" id="min-input"
+                                    min="0" max="100" value="50">
+                                Max: <input type="number" style="border: 1px solid rgba(222, 226, 231, 1);" id="max-input"
+                                    min="0" max="100" value="50">
+                            </div>
+                            <div>
+                                <a name="" id="" class="btn btn-light w-75"
+                                    style="border: 1px solid rgba(222, 226, 231, 1); color: rgba(13, 110, 253, 1); margin: auto; display: block; margin-top: 5px; background: white; font-weight: 500;"
+                                    href="#" role="button">Apply</a>
+                            </div>
 
-                    </div>
-                    <!-- 5 -->
-                    <div class="row" style="border-top: 1px solid rgba(139, 150, 165, 0.4); margin-top: 20px;">
-                        <ul style="list-style: none; padding: 20px; padding-left: 0; margin: 0;">
-                            <h6 style="font-size: 17px;">Condition</h6>
-                            <li style="margin-top: 15px;">
-                                <div class="form-check">
-                                    <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);;"
-                                        type="radio" name="radioDefault" value="" id="radioDefault1" checked>
-                                    <label class="form-check-label" for="radioDefault1">
-                                        <p
-                                            style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
-                                            Any</p>
-                                    </label>
-                                </div>
-                            </li>
-                            <li style="margin-top: 15px;">
-                                <div class="form-check">
-                                    <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);;"
-                                        type="radio" name="radioDefault" value="" id="radioDefault2">
-                                    <label class="form-check-label" for="radioDefault2">
-                                        <p
-                                            style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
-                                            Refurbished</p>
-                                    </label>
-                                </div>
-                            </li>
-                            <li style="margin-top: 15px;">
-                                <div class="form-check">
-                                    <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);;"
-                                        type="radio" name="radioDefault" value="" id="radioDefault3">
-                                    <label class="form-check-label" for="radioDefault3">
-                                        <p
-                                            style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
-                                            Brand new</p>
-                                    </label>
-                                </div>
-                            </li>
-                            <li style="margin-top: 15px;">
-                                <div class="form-check">
-                                    <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);;"
-                                        type="radio" name="radioDefault" value="" id="radioDefault4">
-                                    <label class="form-check-label" for="radioDefault4">
-                                        <p
-                                            style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
-                                            Old items</p>
-                                    </label>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- 6 -->
-                    <div class="row" style="border-top: 1px solid rgba(139, 150, 165, 0.4);">
-                        <ul style="list-style: none; padding: 20px; padding-left: 0; margin: 0;">
-                            <h6 style="font-size: 17px;">Ratings</h6>
-                            <li style="margin-top: 15px;">
-                                <div class="form-check">
-                                    <input class="form-check-input" onclick="add_feature('5 star')"
-                                        style="border: 2px solid rgba(80, 80, 80, 0.4);" type="checkbox" value=""
-                                        id="checkDefault">
-                                    <label class="form-check-label">
-                                        <div class="star-rating2">
-                                            <span class="star active" style="margin-top: -8px;">&#9733;</span>
-                                            <span class="star active" style="margin-top: -8px;">&#9733;</span>
-                                            <span class="star active" style="margin-top: -8px;">&#9733;</span>
-                                            <span class="star active" style="margin-top: -8px;">&#9733;</span>
-                                            <span class="star active" style="margin-top: -8px;">&#9733;</span>
-                                        </div>
-                                    </label>
-                                </div>
-                            </li>
-                            <li style="margin-top: 5px;">
-                                <div class="form-check">
-                                    <input class="form-check-input" onclick="add_feature('4 star')"
-                                        style="border: 2px solid rgba(80, 80, 80, 0.4);;" type="checkbox" value=""
-                                        id="checkDefault">
-                                    <label class="form-check-label">
-                                        <div class="star-rating2">
-                                            <span class="star active" style="margin-top: -8px;">&#9733;</span>
-                                            <span class="star active" style="margin-top: -8px;">&#9733;</span>
-                                            <span class="star active" style="margin-top: -8px;">&#9733;</span>
-                                            <span class="star active" style="margin-top: -8px;">&#9733;</span>
-                                            <span class="star" style="margin-top: -8px;">&#9733;</span>
-                                        </div>
-                                    </label>
-                                </div>
-                            </li>
-                            <li style="margin-top: 5px;">
-                                <div class="form-check">
-                                    <input class="form-check-input" onclick="add_feature('3 star')"
-                                        style="border: 2px solid rgba(80, 80, 80, 0.4);" type="checkbox" value=""
-                                        id="checkDefault">
-                                    <label class="form-check-label">
-                                        <div class="star-rating2">
-                                            <span class="star active" style="margin-top: -8px;">&#9733;</span>
-                                            <span class="star active" style="margin-top: -8px;">&#9733;</span>
-                                            <span class="star active" style="margin-top: -8px;">&#9733;</span>
-                                            <span class="star" style="margin-top: -8px;">&#9733;</span>
-                                            <span class="star" style="margin-top: -8px;">&#9733;</span>
-                                        </div>
-                                    </label>
-                                </div>
-                            </li>
-                            <li style="margin-top: 5px;">
-                                <div class="form-check">
-                                    <input class="form-check-input" onclick="add_feature('2 star')"
-                                        style="border: 2px solid rgba(80, 80, 80, 0.4);" type="checkbox" value=""
-                                        id="checkDefault">
-                                    <label class="form-check-label">
-                                        <div class="star-rating2">
-                                            <span class="star active" style="margin-top: -8px;">&#9733;</span>
-                                            <span class="star active" style="margin-top: -8px;">&#9733;</span>
-                                            <span class="star" style="margin-top: -8px;">&#9733;</span>
-                                            <span class="star" style="margin-top: -8px;">&#9733;</span>
-                                            <span class="star" style="margin-top: -8px;">&#9733;</span>
-                                        </div>
-                                    </label>
-                                </div>
-                            </li>
-                        </ul>
+                        </div>
+                        <!-- 5 -->
+                        <div class="row" style="border-top: 1px solid rgba(139, 150, 165, 0.4); margin-top: 20px;">
+                            <ul style="list-style: none; padding: 20px; padding-left: 0; margin: 0;">
+                                <h6 style="font-size: 17px;">Condition</h6>
+                                <li style="margin-top: 15px;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);;"
+                                            type="radio" name="radioDefault" value="" id="radioDefault1" checked>
+                                        <label class="form-check-label" for="radioDefault1">
+                                            <p
+                                                style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
+                                                Any</p>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li style="margin-top: 15px;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);;"
+                                            type="radio" name="radioDefault" value="" id="radioDefault2">
+                                        <label class="form-check-label" for="radioDefault2">
+                                            <p
+                                                style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
+                                                Refurbished</p>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li style="margin-top: 15px;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);;"
+                                            type="radio" name="radioDefault" value="" id="radioDefault3">
+                                        <label class="form-check-label" for="radioDefault3">
+                                            <p
+                                                style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
+                                                Brand new</p>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li style="margin-top: 15px;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" style="border: 2px solid rgba(80, 80, 80, 0.4);;"
+                                            type="radio" name="radioDefault" value="" id="radioDefault4">
+                                        <label class="form-check-label" for="radioDefault4">
+                                            <p
+                                                style="font-size: 17px; margin: 0; text-decoration: none; color: rgba(28, 28, 28, 1);">
+                                                Old items</p>
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 6 -->
+                        <div class="row" style="border-top: 1px solid rgba(139, 150, 165, 0.4);">
+                            <ul style="list-style: none; padding: 20px; padding-left: 0; margin: 0;">
+                                <h6 style="font-size: 17px;">Ratings</h6>
+                                <li style="margin-top: 15px;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" onclick="add_feature('5 star')"
+                                            style="border: 2px solid rgba(80, 80, 80, 0.4);" type="checkbox" value=""
+                                            id="checkDefault">
+                                        <label class="form-check-label">
+                                            <div class="star-rating2">
+                                                <span class="star active" style="margin-top: -8px;">&#9733;</span>
+                                                <span class="star active" style="margin-top: -8px;">&#9733;</span>
+                                                <span class="star active" style="margin-top: -8px;">&#9733;</span>
+                                                <span class="star active" style="margin-top: -8px;">&#9733;</span>
+                                                <span class="star active" style="margin-top: -8px;">&#9733;</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li style="margin-top: 5px;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" onclick="add_feature('4 star')"
+                                            style="border: 2px solid rgba(80, 80, 80, 0.4);;" type="checkbox" value=""
+                                            id="checkDefault">
+                                        <label class="form-check-label">
+                                            <div class="star-rating2">
+                                                <span class="star active" style="margin-top: -8px;">&#9733;</span>
+                                                <span class="star active" style="margin-top: -8px;">&#9733;</span>
+                                                <span class="star active" style="margin-top: -8px;">&#9733;</span>
+                                                <span class="star active" style="margin-top: -8px;">&#9733;</span>
+                                                <span class="star" style="margin-top: -8px;">&#9733;</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li style="margin-top: 5px;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" onclick="add_feature('3 star')"
+                                            style="border: 2px solid rgba(80, 80, 80, 0.4);" type="checkbox" value=""
+                                            id="checkDefault">
+                                        <label class="form-check-label">
+                                            <div class="star-rating2">
+                                                <span class="star active" style="margin-top: -8px;">&#9733;</span>
+                                                <span class="star active" style="margin-top: -8px;">&#9733;</span>
+                                                <span class="star active" style="margin-top: -8px;">&#9733;</span>
+                                                <span class="star" style="margin-top: -8px;">&#9733;</span>
+                                                <span class="star" style="margin-top: -8px;">&#9733;</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li style="margin-top: 5px;">
+                                    <div class="form-check">
+                                        <input class="form-check-input" onclick="add_feature('2 star')"
+                                            style="border: 2px solid rgba(80, 80, 80, 0.4);" type="checkbox" value=""
+                                            id="checkDefault">
+                                        <label class="form-check-label">
+                                            <div class="star-rating2">
+                                                <span class="star active" style="margin-top: -8px;">&#9733;</span>
+                                                <span class="star active" style="margin-top: -8px;">&#9733;</span>
+                                                <span class="star" style="margin-top: -8px;">&#9733;</span>
+                                                <span class="star" style="margin-top: -8px;">&#9733;</span>
+                                                <span class="star" style="margin-top: -8px;">&#9733;</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-9">
+                <div class="col-lg-9">
                     <div class="row">
                         <div class="col-md-12">
                             <div
                                 style="border: 1px solid rgba(222, 226, 231, 1); padding: 10px; border-radius: 10px; margin-bottom: 20px; background-color: white;">
                                 <div class="row">
-                                    <div class="col-md-6" style="align-content: center;">
+                                    <div class="col-lg-5" style="align-content: center;">
                                         <p style="font-weight: 400; font-size: 17px; margin: 0;">12,911 items in <span
                                                 style="font-weight: 600; font-size: 17px;">Mobile accessory</span></p>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-7">
                                         <div class="row">
                                             <div class="col-md-3"></div>
-                                            <div class="col-md-4 p-0" style="align-content: center;">
+                                            <div class="col-sm-4 p-0" style="align-content: center;">
                                                 <div class="form-check" style="margin-left: 20px;">
                                                     <input class="form-check-input" style="width: 20px; height: 20px;"
                                                         type="checkbox" value="" id="checkChecked" checked>
@@ -831,7 +861,7 @@
                                                     </label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3 p-0">
+                                            <div class="col-sm-3 p-0">
                                                 <div class="btn-group">
                                                     <button class="btn dropdown-toggle"
                                                         style="padding: 10; width: 100%; font-size: 17px; font-weight: 400; border: 1px solid rgb(204, 200, 200);"
@@ -850,7 +880,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-2 p-2" style="align-content: center;">
+                                            <div class="col-sm-2 p-2" style="align-content: center;">
                                                 <img src="assets/Vector5.png" class="q"
                                                     onclick="setView('grid', '12', '4', '10', '2', 'none')"
                                                     style="border: 1px solid rgb(204, 200, 200); padding: 5px;" alt="">
@@ -868,6 +898,7 @@
                         </div>
                         <div class="container">
                             <div id="greeting" class="row list-view">
+                            
                                 <!-- Class objects -->
                             </div>
                         </div>
@@ -1018,19 +1049,19 @@
                             itemid: 5,
                             title: "Canon Camera EOS 2000, Black 10x zoom",
                             price: '$98.00',
-                            imgurl: "assets/image 862.png"
+                            imgurl: "assets/image862.png"
                         },
                         {
                             itemid: 6,
                             title: "Canon Camera EOS 2000, Black 10x zoom",
                             price: '$98.00',
-                            imgurl: "assets/image 852.png"
+                            imgurl: "assets/image852.png"
                         },
                         {
                             itemid: 7,
                             title: "Canon Camera EOS 2000, Black 10x zoom",
                             price: '$98.00',
-                            imgurl: "assets/image 902.png"
+                            imgurl: "assets/image902.png"
                         },
                         {
                             itemid: 8,
@@ -1042,7 +1073,7 @@
                             itemid: 9,
                             title: "Canon Camera EOS 2000, Black 10x zoom",
                             price: '$98.00',
-                            imgurl: "assets/image 30.png"
+                            imgurl: "assets/image30.png"
                         },
                         {
                             itemid: 10,
@@ -1059,10 +1090,24 @@
                     return `<div class="col-md-12 item">
                                         <div style="border: 1px solid rgba(222, 226, 231, 1); padding: 20px; border-radius: 10px; background-color: white;">
                                             <div class="row" style="position: relative;">
-                                                <div class="wish">
-                                                    <img src="assets/Vector7.png"
-                                                        style="padding: 8px; border: 1px solid rgba(222, 226, 231, 1); border-radius: 5px; cursor: pointer;"
-                                                        alt="" />
+                                                <div class="wish liveToastBtn" data-title="${el.title}" data-price="${el.title}" data-imgurl="${el.imgurl}" onclick="goToPage2(this)">
+                                                    <svg class="heart" viewBox="0 0 24 24" tabindex="0" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M12 21s-6.9-4.3-9.5-9.1C0.4 8.2 2.4 3.6 7 4.1c2.2.2 3.6 1.9 5 3.4 1.4-1.5 2.8-3.2 5-3.4 4.6-0.5 6.6 4.1 4.5 7.8C18.9 16.7 12 21 12 21z"/>
+                                                    </svg>
+                                                </div>
+                                                    <!-- Toast -->
+                                                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                                                    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                                                        <div class="toast-header">
+                                                        <img class="rounded me-2" alt="...">
+                                                        <strong class="me-auto">Bootstrap</strong>
+                                                        <small>11 mins ago</small>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="toast-body">
+                                                        Item saved
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <a class="col-md-3 cont2 align-items-center d-flex" href="page3.html">
                                                     <img src="${el.imgurl}" class="img-fluid" style="max-height: 180px; object-fit: contain; display: block; margin: auto;" alt=""/>
@@ -1109,6 +1154,41 @@
                 }).join('');
             }
         }
+
+        function goToPage2(element) {
+            const title = element.getAttribute("data-title");
+            const price = element.getAttribute("data-price");
+            const imgurl = element.getAttribute("data-imgurl");
+
+            localStorage.setItem("runFunction", "true");
+            localStorage.setItem("param_title", title);
+            localStorage.setItem("param_price", price);
+            localStorage.setItem("param_imgurl", imgurl);
+            const newItem = { title, price, imgurl };
+
+            // Get existing saved items or empty array
+            let savedItems = JSON.parse(localStorage.getItem("savedItems")) || [];
+
+            // Add new item
+            savedItems.push(newItem);
+            const alreadyExists = savedItems.some(item => item.imgurl === newItem.title);
+
+            if (alreadyExists) {
+                console.log("Item already saved.");
+                return; // abort adding
+            }
+            // Save back to localStorage
+            localStorage.setItem("savedItems", JSON.stringify(savedItems));
+            localStorage.setItem("runFunction", "true");
+
+            const toastTriggers = document.querySelectorAll('.liveToastBtn');
+            const toastLiveExample = document.getElementById('liveToast');
+
+            if (toastLiveExample) {
+                const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+                toastBootstrap.show();
+            }
+        }   
 
         const mybox = new box()
         document.getElementById('greeting').innerHTML = mybox.render()
@@ -1217,7 +1297,7 @@
             const existing = container.querySelector(`[data-feature="${name}"]`);
 
             if (existing) {
-                existing.remove(); // If already added, remove it (toggle off)
+                existing.remove();
             } else {
                 const featureHTML = `
                 <div class="feature-item" data-feature="${name}" style="align-items: center; margin-right: 10px;">
